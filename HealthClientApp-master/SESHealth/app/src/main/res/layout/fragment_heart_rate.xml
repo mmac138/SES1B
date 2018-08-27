@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="yourteamnumber.seshealthpatient.Fragments.HeartRateFragment"
-    android:background="@drawable/loginBackground">
+    android:background="@drawable/loginbackground">
 
     <!-- TODO: Update blank fragment layout -->
 

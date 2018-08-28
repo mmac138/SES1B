@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="yourteamnumber.seshealthpatient.Activities.LoginActivity">
+    tools:context="group6.seshealthpatient.Activities.LoginActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/login_toolbar"
@@ -68,6 +68,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
         android:text="@string/log_in_txt" />
+
+    <TextView
+        android:id="@+id/registerTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordTV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/login_register" />
 
 
 </RelativeLayout>

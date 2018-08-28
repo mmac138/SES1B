@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">SESHealthPatient</string>
     <string name="username_txt">Username</string>
+    <string name="fullname_txt">Full Name</string>
     <string name="email_example_com">email@example.com</string>
     <string name="password_txt">Password</string>
     <string name="log_in_txt">Log In</string>
     <string name="login_activity_title">Log In</string>
+    <string name="login_register">Tap here to register a new account</string>
+    <string name="register_txt">Register</string>
+    <string name="register_title">Register</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -15,6 +19,7 @@
     <string name="record_video">Record Video</string>
     <string name="send_local_file">Send Local File</string>
     <string name="facilities_map">Facilities Map</string>
+    <string name="sign_out">Sign Out</string>
 
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>

@@ -119,6 +119,6 @@
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: com.android.support:support-v4:19.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\62645\AndroidStudioProjects\HeartRate\app\libs\achartengine-1.0.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\62645\AndroidStudioProjects\Git\SES1B\HealthClientApp-master\SESHealth\app\libs\achartengine-1.0.0.jar:unspecified@jar" level="project" />
   </component>
 </module>

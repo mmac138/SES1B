@@ -222,7 +222,7 @@ public class MainActivity extends Activity {
 			flag = 1;
 			if (gx < 200) {
 				if (hua[20] > 1) {
-					Toast.makeText(MainActivity.this, "请用您的指尖盖住摄像头镜头！",
+					Toast.makeText(MainActivity.this, "Please cover the camera lens with your fingertips",
 							Toast.LENGTH_SHORT).show();
 					hua[20] = 0;
 				}
@@ -313,7 +313,7 @@ public class MainActivity extends Activity {
 			int imgAvg = ImageProcessing.decodeYUV420SPtoRedAvg(data.clone(),
 					height, width);
 			gx = imgAvg;
-			text1.setText("像素值:" + String.valueOf(imgAvg));
+			text1.setText("Image:" + String.valueOf(imgAvg));
 			// 像素平均值imgAvg,日志
 			// Log.i(TAG, "imgAvg=" + imgAvg);
 			if (imgAvg == 0 || imgAvg == 255) {
@@ -329,7 +329,7 @@ public class MainActivity extends Activity {
 					averageArrayCnt++;
 				}
 			}
-
+//像素
 			int rollingAverage = (averageArrayCnt > 0) ? (averageArrayAvg / averageArrayCnt)
 					: 0;
 			TYPE newType = currentType;
@@ -338,7 +338,7 @@ public class MainActivity extends Activity {
 				if (newType != currentType) {
 					beats++;
 					flag = 0;
-					text2.setText("脉冲:" + String.valueOf(beats));
+					text2.setText("Beat:" + String.valueOf(beats));
 					// Log.e(TAG, "BEAT!! beats=" + beats);
 				}
 			} else if (imgAvg > rollingAverage) {
@@ -384,7 +384,7 @@ public class MainActivity extends Activity {
 					}
 				}
 				int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
-				text.setText("心率:" + String.valueOf(beatsAvg) + "  zhi:"
+				text.setText("Heart Rate:" + String.valueOf(beatsAvg) + "  zhi:"
 						+ String.valueOf(beatsArray.length) + "    "
 						+ String.valueOf(beatsIndex) + "    "
 						+ String.valueOf(beatsArrayAvg) + "    "

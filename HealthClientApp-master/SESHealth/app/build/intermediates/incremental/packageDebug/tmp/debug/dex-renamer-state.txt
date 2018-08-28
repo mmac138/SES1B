@@ -1,4 +1,4 @@
-#Mon Aug 27 23:43:55 AEST 2018
+#Tue Aug 28 11:41:06 AEST 2018
 path.3=classes.dex
 path.2=classes.dex
 path.1=classes.dex
@@ -7,7 +7,7 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.3=C\:\\Users\\62645\\AndroidStudioProjects\\HeartRate\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\29
-base.2=C\:\\Users\\62645\\AndroidStudioProjects\\HeartRate\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\30
-base.1=C\:\\Users\\62645\\AndroidStudioProjects\\HeartRate\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\28
-base.0=C\:\\Users\\62645\\AndroidStudioProjects\\HeartRate\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\31
+base.3=C\:\\Users\\62645\\AndroidStudioProjects\\Git\\SES1B\\HealthClientApp-master\\SESHealth\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
+base.2=C\:\\Users\\62645\\AndroidStudioProjects\\Git\\SES1B\\HealthClientApp-master\\SESHealth\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
+base.1=C\:\\Users\\62645\\AndroidStudioProjects\\Git\\SES1B\\HealthClientApp-master\\SESHealth\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
+base.0=C\:\\Users\\62645\\AndroidStudioProjects\\Git\\SES1B\\HealthClientApp-master\\SESHealth\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12

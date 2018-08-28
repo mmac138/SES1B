@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="yourteamnumber.seshealthpatient.Fragments.HeartRateFragment"
-    android:background="@drawable/loginBackground">
+    android:background="@drawable/loginbackground">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -14,8 +14,7 @@
         android:layout_height="73dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="#282828"
-        android:minHeight="?attr/actionBarSize" />
+        android:background="#282828" />
 
     <TextView
         android:id="@+id/textView"
@@ -24,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:fontFamily="@font/CaviarDreams"
+        android:fontFamily="@font/caviardreams"
         android:text="Heart Rate"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
@@ -37,7 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="51dp"
-        android:fontFamily="@font/CaviarDreams"
+        android:fontFamily="@font/caviardreams"
         android:text="Measure" />
 
     <ImageView
@@ -56,7 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="132dp"
-        android:fontFamily="@font/CaviarDreams"
+        android:fontFamily="@font/caviardreams"
         android:text="0 BPM"
         android:textSize="30sp" />
 

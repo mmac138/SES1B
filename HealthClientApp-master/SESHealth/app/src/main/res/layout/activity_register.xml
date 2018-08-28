@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="yourteamnumber.seshealthpatient.Activities.LoginActivity"
-    android:background="@drawable/loginbackground">
+    android:background="@drawable/loginBackground">
 
     <TextView
         android:id="@+id/usernameTV7"
@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/usernameTV2"
         android:layout_marginTop="231dp"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:labelFor="@+id/usernameET"
         android:text="Full Name" />
 
@@ -35,7 +35,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:text="Create Profile"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
@@ -49,7 +49,7 @@
         android:layout_alignTop="@+id/usernameTV6"
         android:layout_marginStart="17dp"
         android:layout_toEndOf="@+id/usernameTV2"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:inputType="textEmailAddress"
         android:textAlignment="textStart" />
 
@@ -61,7 +61,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/usernameTV2"
         android:layout_marginBottom="102dp"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:labelFor="@+id/usernameET"
         android:text="Weight (kg)" />
 
@@ -73,7 +73,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/usernameTV2"
         android:layout_marginBottom="235dp"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:labelFor="@+id/usernameET"
         android:text="Gender"
         android:textAlignment="textStart" />
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/usernameTV7"
         android:layout_toEndOf="@+id/usernameTV2"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:inputType="textEmailAddress"
         android:textAlignment="textStart" />
 
@@ -97,7 +97,7 @@
         android:layout_alignTop="@+id/usernameTV4"
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@+id/usernameTV2"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:inputType="textEmailAddress"
         android:textAlignment="textStart" />
 
@@ -109,7 +109,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/usernameTV2"
         android:layout_marginBottom="169dp"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:labelFor="@+id/usernameET"
         android:text="Height (cm)" />
 
@@ -122,7 +122,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="57dp"
         android:layout_marginTop="107dp"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:labelFor="@+id/usernameET"
         android:text="@string/username_txt" />
 
@@ -133,7 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/usernameTV2"
         android:layout_toEndOf="@+id/usernameTV2"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:inputType="textEmailAddress"
         android:textAlignment="textStart" />
 
@@ -145,7 +145,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="168dp"
         android:layout_toStartOf="@+id/usernameET2"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:labelFor="@+id/usernameET"
         android:text="Password" />
 
@@ -156,7 +156,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/usernameTV3"
         android:layout_toEndOf="@+id/usernameTV3"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:inputType="textEmailAddress"
         android:textAlignment="textStart" />
 
@@ -167,7 +167,27 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/CaviarDreams"
         android:text="Register" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV5"
+        android:layout_toEndOf="@+id/usernameTV7"
+        android:fontFamily="@font/CaviarDreams"
+        android:text="Male"
+        android:textSize="18sp" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/usernameET6"
+        android:layout_alignTop="@+id/usernameTV5"
+        android:fontFamily="@font/CaviarDreams"
+        android:text="Female"
+        android:textSize="18sp" />
 
 </RelativeLayout>

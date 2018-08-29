@@ -48,25 +48,35 @@
         android:layout_marginTop="25dp"
         android:text="Gender" />
 
-    <RadioButton
-        android:id="@+id/reg_maleRB"
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_femaleRB"
-        android:layout_alignBottom="@+id/reg_femaleRB"
-        android:layout_alignStart="@+id/reg_full_nameET"
-        android:checked="false"
-        android:text="Male" />
-
-    <RadioButton
-        android:id="@+id/reg_femaleRB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_genderTV"
         android:layout_alignBottom="@+id/reg_genderTV"
-        android:layout_marginStart="23dp"
-        android:layout_toEndOf="@+id/reg_maleRB"
-        android:text="Female" />
+        android:layout_alignStart="@+id/reg_full_nameET"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/reg_maleRB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/reg_femaleRB"
+            android:layout_alignBottom="@+id/reg_femaleRB"
+            android:layout_alignStart="@+id/reg_full_nameET"
+            android:checked="false"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/reg_femaleRB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/reg_genderTV"
+            android:layout_alignBottom="@+id/reg_genderTV"
+            android:layout_marginStart="23dp"
+            android:layout_toEndOf="@+id/reg_maleRB"
+            android:text="Female" />
+
+    </RadioGroup>
 
     <TextView
         android:id="@+id/reg_dobTV"
@@ -82,9 +92,8 @@
         android:id="@+id/reg_dobET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_dobTV"
-        android:layout_alignBottom="@+id/reg_dobTV"
-        android:layout_alignStart="@+id/reg_maleRB"
+        android:layout_alignStart="@+id/registerBtn"
+        android:layout_alignTop="@+id/reg_dobTV"
         android:ems="10"
         android:inputType="date" />
 
@@ -151,9 +160,9 @@
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/reg_medicalInfoET"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
+        android:layout_marginBottom="21dp"
         android:text="Register" />
 
 

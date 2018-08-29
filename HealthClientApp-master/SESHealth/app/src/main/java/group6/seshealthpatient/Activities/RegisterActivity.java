@@ -45,10 +45,6 @@ public class RegisterActivity extends AppCompatActivity {
         // You need this line on your activity so Butter Knife knows what Activity-View we are referencing
         ButterKnife.bind(this);
 
-        // A reference to the toolbar, that way we can modify it as we please
-        Toolbar toolbar = findViewById(R.id.register_toolbar);
-        setSupportActionBar(toolbar);
-
         // Please try to use more String resources (values -> strings.xml) vs hardcoded Strings.
         setTitle(R.string.register_title);
 

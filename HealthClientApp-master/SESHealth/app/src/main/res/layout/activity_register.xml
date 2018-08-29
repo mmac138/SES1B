@@ -4,170 +4,205 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="group6.seshealthpatient.Activities.RegisterActivity">
+    tools:context="group6.seshealthpatient.Activities.RegisterActivity"
+    android:background="@drawable/loginbackground">
+
+    <TextView
+        android:id="@+id/loginTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="113dp"
+        android:fontFamily="@font/caviardreams"
+        android:text="Already have an account? Login here!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.704" />
+
+    <TextView
+        android:id="@+id/usernameTV7"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/usernameTV2"
+        android:layout_marginTop="231dp"
+        android:fontFamily="@font/caviardreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Full Name:" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/register_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:titleTextColor="@color/whiteColor"
-        />
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#282828" />
 
-    <!-- FullName Text Field -->
     <TextView
-        android:id="@+id/reg_fullnameTV"
-        style="@style/RegisterStyles"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/register_toolbar"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/fullname_txt" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/caviardreams"
+        android:text="Create Profile"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/weightET"
+        style="@style/LoginStyles"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV6"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviardreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/usernameTV6"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/usernameTV7"
+        android:layout_marginBottom="179dp"
+        android:fontFamily="@font/caviardreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Weight (kg):" />
+
+    <TextView
+        android:id="@+id/usernameTV5"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/usernameTV7"
+        android:layout_marginTop="301dp"
+        android:fontFamily="@font/caviardreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Gender:"
+        android:textAlignment="textStart" />
 
     <EditText
         android:id="@+id/reg_full_nameET"
-        android:layout_width="wrap_content"
+        style="@style/LoginStyles"
+        android:layout_width="178dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_fullnameTV"
-        android:layout_alignBottom="@+id/reg_fullnameTV"
-        android:layout_marginStart="36dp"
-        android:layout_toEndOf="@+id/reg_fullnameTV"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/reg_genderTV"
-        style="@style/RegisterStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/reg_fullnameTV"
-        android:layout_below="@+id/reg_full_nameET"
-        android:layout_marginTop="25dp"
-        android:text="Gender" />
-
-    <RadioButton
-        android:id="@+id/reg_maleRB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_femaleRB"
-        android:layout_alignBottom="@+id/reg_femaleRB"
-        android:layout_alignStart="@+id/reg_full_nameET"
-        android:checked="false"
-        android:text="Male" />
-
-    <RadioButton
-        android:id="@+id/reg_femaleRB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_genderTV"
-        android:layout_alignBottom="@+id/reg_genderTV"
-        android:layout_marginStart="23dp"
-        android:layout_toEndOf="@+id/reg_maleRB"
-        android:text="Female" />
-
-    <TextView
-        android:id="@+id/reg_dobTV"
-        style="@style/RegisterStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/reg_genderTV"
-        android:layout_below="@+id/reg_genderTV"
-        android:layout_marginTop="32dp"
-        android:text="Date of Birth" />
+        android:layout_alignTop="@+id/usernameTV7"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviardreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
 
     <EditText
-        android:id="@+id/reg_dobET"
-        android:layout_width="wrap_content"
+        android:id="@+id/heightET"
+        style="@style/LoginStyles"
+        android:layout_width="163dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_dobTV"
-        android:layout_alignBottom="@+id/reg_dobTV"
-        android:layout_alignStart="@+id/reg_maleRB"
-        android:ems="10"
-        android:inputType="date" />
+        android:layout_alignTop="@+id/usernameTV4"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviardreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
 
     <TextView
-        android:id="@+id/reg_heightTV"
-        style="@style/RegisterStyles"
+        android:id="@+id/usernameTV4"
+        style="@style/LoginStyles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/reg_dobTV"
-        android:layout_below="@+id/reg_dobET"
-        android:layout_marginTop="27dp"
-        android:text="Height (cm)" />
-
-    <EditText
-        android:id="@+id/reg_heightET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_heightTV"
-        android:layout_alignBottom="@+id/reg_heightTV"
-        android:layout_alignStart="@+id/reg_dobET"
-        android:ems="10"
-        android:inputType="number" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/usernameTV7"
+        android:layout_marginBottom="253dp"
+        android:fontFamily="@font/caviardreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Height (cm):" />
 
     <TextView
-        android:id="@+id/reg_weightTV"
-        style="@style/RegisterStyles"
+        android:id="@+id/usernameTV3"
+        style="@style/LoginStyles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/reg_heightTV"
-        android:layout_below="@+id/reg_heightET"
-        android:layout_marginTop="29dp"
-        android:text="Weight (kg)" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="107dp"
+        android:fontFamily="@font/caviardreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/username_txt" />
 
     <EditText
-        android:id="@+id/reg_weightET"
-        android:layout_width="wrap_content"
+        android:id="@+id/passwordET"
+        style="@style/LoginStyles"
+        android:layout_width="179dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/reg_heightET"
-        android:layout_alignTop="@+id/reg_weightTV"
-        android:ems="10"
-        android:inputType="number" />
+        android:layout_alignTop="@+id/usernameTV2"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviardreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
 
     <TextView
-        android:id="@+id/reg_medicalInfoTV"
-        style="@style/RegisterStyles"
+        android:id="@+id/usernameTV2"
+        style="@style/LoginStyles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/reg_weightTV"
-        android:layout_below="@+id/reg_weightET"
-        android:layout_marginTop="18dp"
-        android:text="Medical Info" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="168dp"
+        android:layout_toStartOf="@+id/usernameET"
+        android:fontFamily="@font/caviardreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Password:" />
 
     <EditText
-        android:id="@+id/reg_medicalInfoET"
-        android:layout_width="wrap_content"
+        android:id="@+id/usernameET"
+        style="@style/LoginStyles"
+        android:layout_width="179dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/reg_medicalInfoTV"
-        android:layout_alignBottom="@+id/reg_medicalInfoTV"
-        android:layout_alignStart="@+id/reg_weightET"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        android:layout_alignTop="@+id/usernameTV3"
+        android:layout_toEndOf="@+id/usernameTV3"
+        android:fontFamily="@font/caviardreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
 
     <Button
-        android:id="@+id/registerBtn"
+        android:id="@+id/register_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/reg_medicalInfoET"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/caviardreams"
         android:text="Register" />
 
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV5"
+        android:layout_toEndOf="@+id/usernameTV7"
+        android:fontFamily="@font/caviardreams"
+        android:text="Male"
+        android:textSize="18sp" />
 
-    <!-- FullName edit text -->
-
-    <!-- UserName Text Field -->
-
-    <!-- UserName edit text -->
-
-    <!-- Password Text View -->
-
-    <!-- Password Edit Text -->
-
-    <!-- Register Button -->
-
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/weightET"
+        android:layout_alignTop="@+id/usernameTV5"
+        android:fontFamily="@font/caviardreams"
+        android:text="Female"
+        android:textSize="18sp" />
 
 </RelativeLayout>

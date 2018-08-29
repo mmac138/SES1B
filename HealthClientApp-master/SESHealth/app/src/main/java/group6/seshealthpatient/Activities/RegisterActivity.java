@@ -1,12 +1,15 @@
 package group6.seshealthpatient.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import group6.seshealthpatient.R;
 
 /**
@@ -29,6 +32,12 @@ public class RegisterActivity extends AppCompatActivity {
 //    @BindView(R.id.reg_passwordET)
 //    EditText passwordEditText;
 
+    @BindView(R.id.radioButton)
+    RadioButton maleRB;
+
+    @BindView(R.id.radioButton2)
+    RadioButton femaleRB;
+
     /**
      * It is helpful to create a tag for every activity/fragment. It will be easier to understand
      * log messages by having different tags on different places.
@@ -49,4 +58,12 @@ public class RegisterActivity extends AppCompatActivity {
         setTitle(R.string.register_title);
 
     }
+
+    @OnClick(R.id.loginTV)
+    public void login() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

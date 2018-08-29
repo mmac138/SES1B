@@ -15,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="113dp"
         android:fontFamily="@font/caviardreams"
-        android:text="Already have an account? Login here!"
+        android:text="@string/register_have_account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -33,7 +33,7 @@
         android:layout_marginTop="231dp"
         android:fontFamily="@font/caviardreams"
         android:labelFor="@+id/usernameET"
-        android:text="Full Name:" />
+        android:text="@string/register_full_name" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/register_toolbar"
@@ -51,7 +51,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:fontFamily="@font/caviardreams"
-        android:text="Create Profile"
+        android:text="@string/register_create_profile"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -65,7 +65,7 @@
         android:layout_marginStart="17dp"
         android:layout_toEndOf="@+id/usernameTV2"
         android:fontFamily="@font/caviardreams"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:textAlignment="textStart" />
 
     <TextView
@@ -78,7 +78,7 @@
         android:layout_marginBottom="179dp"
         android:fontFamily="@font/caviardreams"
         android:labelFor="@+id/usernameET"
-        android:text="Weight (kg):" />
+        android:text="@string/register_weight" />
 
     <TextView
         android:id="@+id/usernameTV5"
@@ -90,7 +90,7 @@
         android:layout_marginTop="301dp"
         android:fontFamily="@font/caviardreams"
         android:labelFor="@+id/usernameET"
-        android:text="Gender:"
+        android:text="@string/register_gender"
         android:textAlignment="textStart" />
 
     <EditText
@@ -101,7 +101,7 @@
         android:layout_alignTop="@+id/usernameTV7"
         android:layout_toEndOf="@+id/usernameTV2"
         android:fontFamily="@font/caviardreams"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:textAlignment="textStart" />
 
     <EditText
@@ -113,7 +113,7 @@
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@+id/usernameTV2"
         android:fontFamily="@font/caviardreams"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:textAlignment="textStart" />
 
     <TextView
@@ -126,7 +126,7 @@
         android:layout_marginBottom="253dp"
         android:fontFamily="@font/caviardreams"
         android:labelFor="@+id/usernameET"
-        android:text="Height (cm):" />
+        android:text="@string/register_height" />
 
     <TextView
         android:id="@+id/usernameTV3"
@@ -149,7 +149,7 @@
         android:layout_alignTop="@+id/usernameTV2"
         android:layout_toEndOf="@+id/usernameTV2"
         android:fontFamily="@font/caviardreams"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:textAlignment="textStart" />
 
     <TextView
@@ -162,7 +162,7 @@
         android:layout_toStartOf="@+id/usernameET"
         android:fontFamily="@font/caviardreams"
         android:labelFor="@+id/usernameET"
-        android:text="Password:" />
+        android:text="@string/password_txt" />
 
     <EditText
         android:id="@+id/usernameET"
@@ -172,7 +172,7 @@
         android:layout_alignTop="@+id/usernameTV3"
         android:layout_toEndOf="@+id/usernameTV3"
         android:fontFamily="@font/caviardreams"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textAlignment="textStart" />
 
     <Button
@@ -183,8 +183,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
         android:fontFamily="@font/caviardreams"
-        android:text="Register" />
+        android:text="@string/register_txt" />
 
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV5"
+        android:layout_alignEnd="@+id/weightET"
+        android:layout_toEndOf="@+id/usernameTV7"
+        android:layout_marginTop="31dp" >
     <RadioButton
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
@@ -204,5 +212,6 @@
         android:fontFamily="@font/caviardreams"
         android:text="Female"
         android:textSize="18sp" />
+    </RadioGroup>
 
 </RelativeLayout>

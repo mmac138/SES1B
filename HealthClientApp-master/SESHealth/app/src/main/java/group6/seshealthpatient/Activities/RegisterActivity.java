@@ -1,6 +1,8 @@
 package group6.seshealthpatient.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -8,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +51,12 @@ public class RegisterActivity extends AppCompatActivity {
     EditText medicalInfoET;
     @BindView(R.id.registerBtn)
     Button registerBtn;
+    @BindView(R.id.reg_emailAddressET)
+    EditText emailET;
+    @BindView(R.id.reg_passwordET)
+    EditText passwordET;
+
+    private FirebaseAuth firebaseAuth;
 
     /**
      * It is helpful to create a tag for every activity/fragment. It will be easier to understand
@@ -67,13 +80,49 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Please try to use more String resources (values -> strings.xml) vs hardcoded Strings.
         setTitle(R.string.register_title);
+        firebaseAuth = FirebaseAuth.getInstance();
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(RegisterActivity.this, "Registered successfully! Waiting for database activation.", Toast.LENGTH_SHORT).show();
+                if(verify()){
+                    String email = emailET.getText().toString().trim();
+                    String password = passwordET.getText().toString().trim();
+
+                    firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()) {
+                                Toast.makeText(RegisterActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                            }
+                            else{
+                                Toast.makeText(RegisterActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                    //uploading data to database
+                }
             }
         });
 
+    }
+    private Boolean verify()
+    {
+        Boolean result = false;
+        String name = usernameEditText.getText().toString();
+        String dob = dobET.getText().toString();
+        String height = heightET.getText().toString();
+        String weight = weightET.getText().toString();
+        String medicalInfo = medicalInfoET.getText().toString();
+        if(name.isEmpty() || dob.isEmpty() || height.isEmpty() || weight.isEmpty() || medicalInfo.isEmpty()){
+
+            Toast.makeText(this, "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            result = true;
+        }
+        return result;
     }
 }

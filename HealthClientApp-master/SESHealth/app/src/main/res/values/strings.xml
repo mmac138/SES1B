@@ -18,4 +18,5 @@
 
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
+    <string name="map_edit_text_hint">Enter location</string>
 </resources>

@@ -29,7 +29,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //Using google map APIs
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
-    implementation "com.google.android.gms:play-services-location:15.0.1"
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation 'com.google.android.gms:play-services-places:15.0.1'
 
     /**
      * NOTE: Whenever you reference to an external library, please add a link to where you took the library from

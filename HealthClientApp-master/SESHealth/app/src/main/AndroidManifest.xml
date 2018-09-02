@@ -27,7 +27,7 @@
         //linking to ggmap APIs key
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAI0dzYmvujWqJB-0-MVkyZxc-fIKRno_8"/>
+            android:value="AIzaSyCXfBrtNFhHtVURCzr1ajjQp8VJnBmoKfs"/>
 
     </application>
 

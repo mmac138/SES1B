@@ -71,10 +71,10 @@ public class MainActivity extends Activity {
 	private static final int[] averageArray = new int[averageArraySize];
 
 	public static enum TYPE {
-		GREEN, RED
+		BLACK, RED
 	};
 
-	private static TYPE currentType = TYPE.GREEN;
+	private static TYPE currentType = TYPE.BLACK;
 
 	public static TYPE getCurrent() {
 		return currentType;
@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
 		mDataset.addSeries(series);
 
 		// 以下都是曲线的样式和属性等等的设置，renderer相当于一个用来给图表做渲染的句柄
-		int color = Color.GREEN;
+		int color = Color.BLACK;
 		PointStyle style = PointStyle.CIRCLE;
 		renderer = buildRenderer(color, style, true);
 
@@ -153,8 +153,7 @@ public class MainActivity extends Activity {
 		previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		// image = findViewById(R.id.image);
 		text = (TextView) findViewById(R.id.text);
-		text1 = (TextView) findViewById(R.id.text1);
-		text2 = (TextView) findViewById(R.id.text2);
+
 		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 		wakeLock = pm
 				.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
@@ -196,7 +195,7 @@ public class MainActivity extends Activity {
 		renderer.setAxesColor(axesColor);
 		renderer.setLabelsColor(labelsColor);
 		renderer.setShowGrid(true);
-		renderer.setGridColor(Color.GREEN);
+		renderer.setGridColor(Color.BLACK);
 		renderer.setXLabels(20);
 		renderer.setYLabels(10);
 		renderer.setXTitle("Time");
@@ -341,7 +340,7 @@ public class MainActivity extends Activity {
 					// Log.e(TAG, "BEAT!! beats=" + beats);
 				}
 			} else if (imgAvg > rollingAverage) {
-				newType = TYPE.GREEN;
+				newType = TYPE.BLACK;
 			}
 
 			if (averageIndex == averageArraySize)

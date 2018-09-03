@@ -313,7 +313,6 @@ public class MainActivity extends Activity {
 			int imgAvg = ImageProcessing.decodeYUV420SPtoRedAvg(data.clone(),
 					height, width);
 			gx = imgAvg;
-			text1.setText("Image:" + String.valueOf(imgAvg));
 			// 像素平均值imgAvg,日志
 			// Log.i(TAG, "imgAvg=" + imgAvg);
 			if (imgAvg == 0 || imgAvg == 255) {
@@ -338,7 +337,7 @@ public class MainActivity extends Activity {
 				if (newType != currentType) {
 					beats++;
 					flag = 0;
-					text2.setText("Beat:" + String.valueOf(beats));
+					//text2.setText("Beat:" + String.valueOf(beats));
 					// Log.e(TAG, "BEAT!! beats=" + beats);
 				}
 			} else if (imgAvg > rollingAverage) {
@@ -384,11 +383,7 @@ public class MainActivity extends Activity {
 					}
 				}
 				int beatsAvg = (beatsArrayAvg / beatsArrayCnt);
-				text.setText("Heart Rate:" + String.valueOf(beatsAvg) + "  zhi:"
-						+ String.valueOf(beatsArray.length) + "    "
-						+ String.valueOf(beatsIndex) + "    "
-						+ String.valueOf(beatsArrayAvg) + "    "
-						+ String.valueOf(beatsArrayCnt));
+				text.setText("Heart Rate:" + String.valueOf(beatsAvg) );
 				// 获取系统时间（ms）
 				startTime = System.currentTimeMillis();
 				beats = 0;

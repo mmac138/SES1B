@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="group6.seshealthpatient.Activities.RegisterActivity"
+    android:background="@drawable/login_background">
+
+    <TextView
+        android:id="@+id/loginTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="113dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="@string/register_have_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.704" />
+
+    <TextView
+        android:id="@+id/usernameTV7"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/usernameTV2"
+        android:layout_marginTop="231dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/register_full_name" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/register_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#282828" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="@string/register_create_profile"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/weightET"
+        style="@style/LoginStyles"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV6"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="number"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/usernameTV6"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/usernameTV7"
+        android:layout_marginBottom="179dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/register_weight" />
+
+    <TextView
+        android:id="@+id/usernameTV5"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/usernameTV7"
+        android:layout_marginTop="301dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/register_gender"
+        android:textAlignment="textStart" />
+
+    <EditText
+        android:id="@+id/reg_full_nameET"
+        style="@style/LoginStyles"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV7"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart" />
+
+    <EditText
+        android:id="@+id/heightET"
+        style="@style/LoginStyles"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV4"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="number"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/usernameTV4"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/usernameTV7"
+        android:layout_marginBottom="253dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/register_height" />
+
+    <TextView
+        android:id="@+id/usernameTV3"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="107dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/username_txt" />
+
+    <EditText
+        android:id="@+id/passwordET"
+        style="@style/LoginStyles"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV2"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textPassword"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/usernameTV2"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="168dp"
+        android:layout_toStartOf="@+id/usernameET"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/password_txt" />
+
+    <EditText
+        android:id="@+id/usernameET"
+        style="@style/LoginStyles"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV3"
+        android:layout_toEndOf="@+id/usernameTV3"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="text"
+        android:textAlignment="textStart" />
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="@string/register_txt" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV5"
+        android:layout_toEndOf="@+id/usernameTV7"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/caviar_dreams"
+            android:text="Male"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/radioButton"
+            android:fontFamily="@font/caviar_dreams"
+            android:text="Female"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+</RelativeLayout>

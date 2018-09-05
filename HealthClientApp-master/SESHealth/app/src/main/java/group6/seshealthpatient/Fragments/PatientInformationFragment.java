@@ -1,4 +1,4 @@
-package yourteamnumber.seshealthpatient.Fragments;
+package group6.seshealthpatient.Fragments;
 
 
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import yourteamnumber.seshealthpatient.R;
+import group6.seshealthpatient.R;
 
 /**
  * Class: PatientInformationFragment

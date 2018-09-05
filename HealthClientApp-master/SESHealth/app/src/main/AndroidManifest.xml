@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="yourteamnumber.seshealthpatient">
+
+    package="group6.seshealthpatient">
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="15" />
@@ -22,6 +23,11 @@
         android:protectionLevel="signature"/>
     <uses-permission android:name="com.example.permission.MAPS_RECEIVE"/>
 
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,6 +43,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.MainActivity"></activity>
+
+
+        //linking to ggmap APIs key
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCXfBrtNFhHtVURCzr1ajjQp8VJnBmoKfs"/>
+
     </application>
 
 </manifest>

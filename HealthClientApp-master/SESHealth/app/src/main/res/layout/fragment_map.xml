@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="yourteamnumber.seshealthpatient.Fragments.MapFragment"
-    android:background="@drawable/loginbackground">
+    android:background="@drawable/login_background">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:fontFamily="@font/caviardreams"
+        android:fontFamily="@font/caviar_dreams"
         android:text="Nearest Doctor"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"

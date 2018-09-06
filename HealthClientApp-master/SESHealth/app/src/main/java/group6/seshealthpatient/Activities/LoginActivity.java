@@ -1,11 +1,13 @@
 package group6.seshealthpatient.Activities;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +49,11 @@ public class LoginActivity extends AppCompatActivity {
      */
     private static String TAG = "LoginActivity";
 
+    /**
+     This is used to warn the user to exit the app when the back button is pressed twice
+     */
+    private boolean doubleBackToExitPressedOnce = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +69,29 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method is used to exit the app once the back button is pressed twice, to confirm
+     * to the user that they want to exit the application
+     */
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press the back button again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
+
 
     /**
      * See how Butter Knife also lets us add an on click event by adding this annotation before the
@@ -75,15 +105,23 @@ public class LoginActivity extends AppCompatActivity {
         // TODO: For now, the login button will simply print on the console the username/password and let you in
         // TODO: It is up to you guys to implement a proper login system
 
-        // Having a tag, and the name of the function on the console message helps allot in
-        // knowing where the message should appear.
-        Log.d(TAG, "LogIn: username: " + username + " password: " + password);
+        // This Toast message displays the username and password once you press the login button
+        Toast.makeText(this, username + " " + password,
+                Toast.LENGTH_LONG).show();
 
-
+        //We need to check that the email and password exist and are correct
         // Start a new activity
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        //finish() is used to prevent the user from entering this page when pressing back from the main menu
+        //finish() removes the activity from the stack.
+        //This activity will be reopened when opening the app or by signing out
+        finish();
     }
 
-
+    @OnClick(R.id.registerTV)
+    public void register() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
 }

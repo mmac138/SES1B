@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="group6.seshealthpatient.Activities.MainActivity">
+    tools:context="group6.seshealthpatient.Activities.MainActivity"
+    android:background="@drawable/login_background"
+    >
 
 
     <!-- This layout will be the one in charge of loading the different fragments-->
@@ -21,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:titleTextColor="@color/whiteColor" />
+            android:theme="@style/ToolbarTheme"
+            app:titleTextColor="@color/whiteColor"/>
 
         <FrameLayout
             android:id="@+id/fragment_container"
@@ -32,6 +34,8 @@
     </LinearLayout>
 
 
+
+
     <!-- This layout will have the items of the navigation drawer -->
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
@@ -39,7 +43,10 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/drawer_view" />
+        app:menu="@menu/drawer_view"
+        app:headerLayout="@layout/nav_header"
+        android:theme="@style/ToolbarTheme">
 
+    </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

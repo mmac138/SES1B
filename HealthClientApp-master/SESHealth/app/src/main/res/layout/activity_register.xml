@@ -1,192 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="group6.seshealthpatient.Activities.LoginActivity"
-    android:background="@drawable/login_background">
-
-    <TextView
-        android:id="@+id/usernameTV7"
-        style="@style/LoginStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/usernameTV2"
-        android:layout_marginTop="231dp"
-        android:fontFamily="@font/caviar_dreams"
-        android:labelFor="@+id/usernameET"
-        android:text="Full Name" />
+    android:background="@drawable/login_background"
+    tools:context="group6.seshealthpatient.Activities.RegisterActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar5"
+        android:id="@+id/register_toolbar"
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="#282828" />
+        android:background="#282828"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
+        android:layout_width="278dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/caviar_dreams"
-        android:text="Create Profile"
+        android:text="@string/register_create_profile"
+        android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/usernameET6"
-        style="@style/LoginStyles"
-        android:layout_width="162dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/usernameTV6"
-        android:layout_marginStart="17dp"
-        android:layout_toEndOf="@+id/usernameTV2"
-        android:fontFamily="@font/caviar_dreams"
-        android:inputType="textEmailAddress"
-        android:textAlignment="textStart" />
-
-    <TextView
-        android:id="@+id/usernameTV6"
-        style="@style/LoginStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/usernameTV2"
-        android:layout_marginBottom="102dp"
-        android:fontFamily="@font/caviar_dreams"
-        android:labelFor="@+id/usernameET"
-        android:text="Weight (kg)" />
-
-    <TextView
-        android:id="@+id/usernameTV5"
-        style="@style/LoginStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/usernameTV2"
-        android:layout_marginBottom="235dp"
-        android:fontFamily="@font/caviar_dreams"
-        android:labelFor="@+id/usernameET"
-        android:text="Gender"
-        android:textAlignment="textStart" />
-
-    <EditText
-        android:id="@+id/usernameET4"
-        style="@style/LoginStyles"
-        android:layout_width="178dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/usernameTV7"
-        android:layout_toEndOf="@+id/usernameTV2"
-        android:fontFamily="@font/caviar_dreams"
-        android:inputType="textEmailAddress"
-        android:textAlignment="textStart" />
-
-    <EditText
-        android:id="@+id/usernameET5"
-        style="@style/LoginStyles"
-        android:layout_width="163dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/usernameTV4"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/usernameTV2"
-        android:fontFamily="@font/caviar_dreams"
-        android:inputType="textEmailAddress"
-        android:textAlignment="textStart" />
-
-    <TextView
-        android:id="@+id/usernameTV4"
-        style="@style/LoginStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/usernameTV2"
-        android:layout_marginBottom="169dp"
-        android:fontFamily="@font/caviar_dreams"
-        android:labelFor="@+id/usernameET"
-        android:text="Height (cm)" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/usernameTV3"
-        style="@style/LoginStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="107dp"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/caviar_dreams"
         android:labelFor="@+id/usernameET"
-        android:text="@string/username_txt" />
+        android:text="@string/username_txt"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205" />
 
     <EditText
-        android:id="@+id/usernameET3"
-        style="@style/LoginStyles"
+        android:id="@+id/usernameET"
         android:layout_width="179dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/usernameTV2"
-        android:layout_toEndOf="@+id/usernameTV2"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/caviar_dreams"
-        android:inputType="textEmailAddress"
-        android:textAlignment="textStart" />
+        android:inputType="text"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
 
     <TextView
         android:id="@+id/usernameTV2"
-        style="@style/LoginStyles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="168dp"
-        android:layout_toStartOf="@+id/usernameET2"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/caviar_dreams"
         android:labelFor="@+id/usernameET"
-        android:text="Password" />
+        android:text="@string/password_txt"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303" />
 
     <EditText
-        android:id="@+id/usernameET2"
-        style="@style/LoginStyles"
+        android:id="@+id/passwordET"
         android:layout_width="179dp"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/usernameTV3"
-        android:layout_toEndOf="@+id/usernameTV3"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/caviar_dreams"
-        android:inputType="textEmailAddress"
-        android:textAlignment="textStart" />
+        android:inputType="textPassword"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.281" />
+
+    <TextView
+        android:id="@+id/usernameTV7"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/register_full_name"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.402" />
+
+    <EditText
+        android:id="@+id/reg_full_nameET"
+        android:layout_width="179dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.384" />
+
+    <TextView
+        android:id="@+id/usernameTV5"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/register_gender"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="185dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.861"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/caviar_dreams"
+            android:text="Male"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/radioButton"
+            android:fontFamily="@font/caviar_dreams"
+            android:text="Female"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/usernameTV4"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/register_height"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.623" />
+
+    <EditText
+        android:id="@+id/heightET"
+        android:layout_width="179dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="number"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.612" />
+
+    <TextView
+        android:id="@+id/usernameTV6"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/register_weight"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73" />
+
+    <EditText
+        android:id="@+id/weightET"
+        android:layout_width="177dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="136dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="number"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922" />
+
+    <TextView
+        android:id="@+id/loginTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="@string/register_have_account"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.827"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/register_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/caviar_dreams"
-        android:text="Register" />
+        android:text="@string/register_txt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.936" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/usernameTV5"
-        android:layout_toEndOf="@+id/usernameTV7"
-        android:fontFamily="@font/caviar_dreams"
-        android:text="Male"
-        android:textSize="18sp" />
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/usernameET6"
-        android:layout_alignTop="@+id/usernameTV5"
-        android:fontFamily="@font/caviar_dreams"
-        android:text="Female"
-        android:textSize="18sp" />
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -3,22 +3,33 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_patient_info"
+            android:icon="@drawable/ic_menu_patient"
             android:title="@string/patient_information" />
         <item
             android:id="@+id/nav_data_packet"
+            android:icon="@drawable/ic_menu_datapacket"
             android:title="@string/create_data_packet" />
         <item
             android:id="@+id/nav_heartrate"
+            android:icon="@drawable/ic_menu_heart"
             android:title="@string/heart_rate" />
         <item
             android:id="@+id/nav_recordvideo"
+            android:icon="@drawable/ic_menu_video"
             android:title="@string/record_video" />
         <item
             android:id="@+id/nav_sendfile"
+            android:icon="@drawable/ic_menu_send"
             android:title="@string/send_local_file" />
 
         <item
             android:id="@+id/nav_map"
+            android:icon="@drawable/ic_menu_nav"
             android:title="@string/facilities_map" />
+
+        <item
+            android:id="@+id/sign_out"
+            android:icon="@drawable/ic_menu_signout"
+            android:title="@string/sign_out" />
     </group>
 </menu>

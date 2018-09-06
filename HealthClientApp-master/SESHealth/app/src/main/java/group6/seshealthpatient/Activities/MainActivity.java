@@ -1,8 +1,11 @@
 package group6.seshealthpatient.Activities;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,9 +16,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 
-
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 import group6.seshealthpatient.Fragments.DataPacketFragment;
@@ -25,6 +28,8 @@ import group6.seshealthpatient.Fragments.PatientInformationFragment;
 import group6.seshealthpatient.Fragments.RecordVideoFragment;
 import group6.seshealthpatient.Fragments.SendFileFragment;
 import group6.seshealthpatient.R;
+
+import static group6.seshealthpatient.R.menu.drawer_view;
 
 
 /**
@@ -80,7 +85,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private MenuStates currentState;
 
+    /**
+        This is used to warn the user to exit the app when the back button is pressed twice
+     */
+    private boolean doubleBackToExitPressedOnce = false;
 
+
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        //TODO update toolbar to menu title
+        getSupportActionBar().setTitle("iDoctor");
 
         // Set up the menu button
         ActionBar actionbar = getSupportActionBar();
@@ -154,6 +166,9 @@ public class MainActivity extends AppCompatActivity {
                                     currentState = MenuStates.NAVIGATION_MAP;
                                 }
                                 break;
+                            case R.id.sign_out:
+                                signOut();
+                                break;
                         }
 
                         return true;
@@ -195,6 +210,15 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    private void signOut() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        //finish() is used to prevent the user from entering this page when pressing back from the login menu
+        //finish() removes the activity from the stack.
+        //This activity will be reopened when opening the app or by signing out
+        finish();
+    }
+
     /**
      * Called when one of the items in the toolbar was clicked, in this case, the menu button.
      */
@@ -206,6 +230,29 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * This method is used to exit the app once the back button is pressed twice, to confirm
+     * to the user that they want to exit the application
+     */
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press the back button again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 
     /**

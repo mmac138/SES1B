@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="group6.seshealthpatient.Activities.LoginActivity"
+    android:background="@drawable/login_background">
+
+    <TextView
+        android:id="@+id/usernameTV7"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/usernameTV2"
+        android:layout_marginTop="231dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Full Name" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar5"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#282828" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="Create Profile"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/usernameET6"
+        style="@style/LoginStyles"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV6"
+        android:layout_marginStart="17dp"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/usernameTV6"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/usernameTV2"
+        android:layout_marginBottom="102dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Weight (kg)" />
+
+    <TextView
+        android:id="@+id/usernameTV5"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/usernameTV2"
+        android:layout_marginBottom="235dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Gender"
+        android:textAlignment="textStart" />
+
+    <EditText
+        android:id="@+id/usernameET4"
+        style="@style/LoginStyles"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV7"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
+
+    <EditText
+        android:id="@+id/usernameET5"
+        style="@style/LoginStyles"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV4"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/usernameTV4"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/usernameTV2"
+        android:layout_marginBottom="169dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Height (cm)" />
+
+    <TextView
+        android:id="@+id/usernameTV3"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="107dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="@string/username_txt" />
+
+    <EditText
+        android:id="@+id/usernameET3"
+        style="@style/LoginStyles"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV2"
+        android:layout_toEndOf="@+id/usernameTV2"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
+
+    <TextView
+        android:id="@+id/usernameTV2"
+        style="@style/LoginStyles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="168dp"
+        android:layout_toStartOf="@+id/usernameET2"
+        android:fontFamily="@font/caviar_dreams"
+        android:labelFor="@+id/usernameET"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/usernameET2"
+        style="@style/LoginStyles"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV3"
+        android:layout_toEndOf="@+id/usernameTV3"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="Register" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usernameTV5"
+        android:layout_toEndOf="@+id/usernameTV7"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="Male"
+        android:textSize="18sp" />
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/usernameET6"
+        android:layout_alignTop="@+id/usernameTV5"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="Female"
+        android:textSize="18sp" />
+
+</RelativeLayout>

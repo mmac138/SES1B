@@ -4,16 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="group6.seshealthpatient.Activities.LoginActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/login_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimaryDark"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:titleTextColor="@color/whiteColor"
-        />
+    tools:context="group6.seshealthpatient.Activities.LoginActivity"
+    android:background="@drawable/login_background">
 
 
     <TextView
@@ -21,53 +13,75 @@
         style="@style/LoginStyles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/usernameET"
+        android:fontFamily="@font/caviar_dreams"
         android:labelFor="@+id/usernameET"
         android:text="@string/username_txt" />
 
     <EditText
         android:id="@id/usernameET"
         style="@style/LoginStyles"
-        android:layout_width="wrap_content"
+        android:layout_width="179dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/login_btn"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/usernameTV"
-        android:hint="@string/email_example_com"
-        android:inputType="textEmailAddress" />
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textEmailAddress"
+        android:textAlignment="textStart" />
 
     <TextView
         android:id="@+id/passwordTV"
         style="@style/LoginStyles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/usernameTV"
-        android:layout_marginTop="20dp"
+        android:layout_alignEnd="@+id/usernameTV"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="205dp"
+        android:fontFamily="@font/caviar_dreams"
         android:labelFor="@+id/passwordET"
         android:text="@string/password_txt" />
 
     <EditText
         android:id="@id/passwordET"
         style="@style/LoginStyles"
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/passwordTV"
+        android:layout_toEndOf="@+id/usernameTV"
+        android:fontFamily="@font/caviar_dreams"
+        android:inputType="textPassword"
+        android:textAlignment="textStart" />
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/usernameET"
-        android:layout_marginTop="20dp"
-        android:layout_toEndOf="@id/passwordTV"
-        android:inputType="textPassword" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/login_btn"
         style="@style/LoginStyles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/passwordTV"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginBottom="87dp"
+        android:fontFamily="@font/caviar_dreams"
         android:text="@string/log_in_txt" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="160dp"
+        android:fontFamily="@font/caviar_dreams"
+        android:text="Don't have a Profile? Join now!" />
 
 
 </RelativeLayout>

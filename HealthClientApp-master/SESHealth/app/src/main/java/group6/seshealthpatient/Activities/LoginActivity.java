@@ -56,8 +56,6 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         // A reference to the toolbar, that way we can modify it as we please
-        Toolbar toolbar = findViewById(R.id.login_toolbar);
-        setSupportActionBar(toolbar);
 
         // Please try to use more String resources (values -> strings.xml) vs hardcoded Strings.
         setTitle(R.string.login_activity_title);

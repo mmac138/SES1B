@@ -298,7 +298,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     }
 
 
-    // Ask for location permission
+    // Deals with location permission result
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 

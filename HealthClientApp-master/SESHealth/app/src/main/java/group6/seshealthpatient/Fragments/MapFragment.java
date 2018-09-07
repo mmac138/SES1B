@@ -108,20 +108,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             }
         });
 
-        //using getChildFragmentManager instead of getFragmentManager
-        // because it is a fragment inside a fragment
-        /*placeAutocompleteFragment = (PlaceAutocompleteFragment) getChildFragmentManager()
-                .findFragmentById(R.id.autocomplete_fragment);
-        placeAutocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-                LatLng latLng = place.getLatLng();
-                moveCamera(latLng, DEFAULT_ZOOM, place.getAddress().toString());
-            }
-            @Override
-            public void onError(Status status) {
-            }
-        });*/
+        initialiseMap();
 
         // Ask the user for location permission right after the fragment opens
         getLocationPermission();
@@ -319,7 +306,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         mLocationPermissionGranted = false;
 
         // User chose ALLOW
-        if (requestCode == PERMISSION_REQUEST_CODE) {
+        if (requestCode == PERMISSION_REQUEST_CODE && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "PERMISSION ALLOWED");
 
             Log.d(TAG, "ALL PERMISSION CHECKED");
@@ -332,7 +319,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             return;
         }
     }
-
 
     // Set the location button visible on the map
     private void enableLocationButton(){

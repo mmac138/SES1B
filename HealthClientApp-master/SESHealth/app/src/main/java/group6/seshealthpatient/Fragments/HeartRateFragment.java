@@ -470,4 +470,5 @@ public class HeartRateFragment extends Fragment {
         previewHolder.addCallback(surfaceCallback);
         previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
+    
 }

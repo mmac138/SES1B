@@ -13,8 +13,8 @@ public class Patient {
     public Patient(){
 
     }
-    public Patient(String patientID, String patientName, String patientEmail, String patientMedicalInfo, String patientDOB, String patientHeight, String patientWeight){
-        patientID = patientID;
+    public Patient(String patientName, String patientEmail, String patientMedicalInfo, String patientDOB, String patientHeight, String patientWeight){
+
         patientName=patientName;
         patientEmail = patientEmail;
         patientMedicalInfo = patientMedicalInfo;

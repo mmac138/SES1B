@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "group6.seshealthpatient"
+        applicationId "group6.seshealthpatient.Activities"
         minSdkVersion 23
         targetSdkVersion 27
         versionCode 1
@@ -22,6 +22,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation files('libs/achartengine-1.0.0.jar')
+    implementation 'com.google.firebase:firebase-core:16.0.3'
+    implementation 'com.google.firebase:firebase-database:16.0.1'
+    implementation 'com.google.firebase:firebase-auth:16.0.3'
+
     implementation 'com.android.support:appcompat-v7:27.1.1'
     // Using the design implementation to use the navigation drawer
     implementation 'com.android.support:design:27.1.1'
@@ -44,3 +48,4 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
 }
+apply plugin: 'com.google.gms.google-services'

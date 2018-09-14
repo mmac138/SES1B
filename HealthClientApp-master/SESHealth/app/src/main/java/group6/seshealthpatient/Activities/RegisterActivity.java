@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,6 +43,11 @@ public class RegisterActivity extends AppCompatActivity {
      */
     @BindView(R.id.reg_maleRB)
     RadioButton maleRB;
+    RadioButton radioButton;
+    @BindView(R.id.reg_genderTV)
+    TextView genderTv;
+    @BindView(R.id.reg_radioGroup)
+    RadioGroup radioGroup;
     @BindView(R.id.reg_femaleRB)
     RadioButton femaleRB;
     @BindView(R.id.reg_dobET)
@@ -117,13 +124,17 @@ public class RegisterActivity extends AppCompatActivity {
     private Boolean verify()
     {
         Boolean result = false;
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        radioButton = (RadioButton) findViewById(selectedId);
         String name = usernameEditText.getText().toString();
         String email = emailET.getText().toString();
         String dob = dobET.getText().toString();
         String height = heightET.getText().toString();
         String weight = weightET.getText().toString();
         String medicalInfo = medicalInfoET.getText().toString();
-        if(name.isEmpty() || dob.isEmpty() || height.isEmpty() || weight.isEmpty() || medicalInfo.isEmpty()){
+        String gender = radioButton.getText().toString();
+        if(name.isEmpty() || dob.isEmpty() || height.isEmpty() || weight.isEmpty() || medicalInfo.isEmpty()
+                || email.isEmpty()){
 
             Toast.makeText(this, "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
         }
@@ -131,13 +142,15 @@ public class RegisterActivity extends AppCompatActivity {
         {
             result = true;
             String id = databaseReference.push().getKey();
-            Patient patient = new Patient(name, email, medicalInfo, dob, height, weight);
+            Patient patient = new Patient(name, email, medicalInfo, dob, height, weight, gender);
             databaseReference.child(id).child("name").setValue(name.toString());
             databaseReference.child(id).child("email").setValue(email.toString());
-            databaseReference.child(id).child("medicalInfo").setValue(dob.toString());
-            databaseReference.child(id).child("dob").setValue(height.toString());
-            databaseReference.child(id).child("height").setValue(weight.toString());
-            databaseReference.child(id).child("weight").setValue(medicalInfo.toString());
+            databaseReference.child(id).child("medicalInfo").setValue(medicalInfo.toString());
+            databaseReference.child(id).child("dob").setValue(dob.toString());
+            databaseReference.child(id).child("height").setValue(height.toString());
+            databaseReference.child(id).child("weight").setValue(weight.toString());
+            databaseReference.child(id).child("gender").setValue(gender.toString());
+
         }
         return result;
     }

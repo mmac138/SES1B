@@ -9,11 +9,12 @@ public class Patient {
     String patientDOB;
     String patientHeight;
     String patientWeight;
+    String patientGender;
 
     public Patient(){
 
     }
-    public Patient(String patientName, String patientEmail, String patientMedicalInfo, String patientDOB, String patientHeight, String patientWeight){
+    public Patient(String patientName, String patientEmail, String patientMedicalInfo, String patientDOB, String patientHeight, String patientWeight, String patientGender){
 
         patientName=patientName;
         patientEmail = patientEmail;
@@ -21,6 +22,7 @@ public class Patient {
         patientDOB = patientDOB;
         patientHeight = patientHeight;
         patientWeight = patientWeight;
+        patientGender = patientGender;
     }
 
     public String getPatientID() {
@@ -86,4 +88,9 @@ public class Patient {
     public void setPatientWeight(String patientWeight) {
         this.patientWeight = patientWeight;
     }
+
+    public String getPatientGender(){
+        return patientGender;
+    }
+    public void setPatientGender(String patientGender){this.patientGender = patientGender;}
 }

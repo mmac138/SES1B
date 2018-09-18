@@ -144,6 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                   //  finish();
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     Toast.makeText(getBaseContext(), "Logging you in...", Toast.LENGTH_LONG).show();
+                    finish();
 
                 }
                 else
@@ -176,5 +177,6 @@ public class LoginActivity extends AppCompatActivity {
     public void register() {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+        finish();
     }
 }

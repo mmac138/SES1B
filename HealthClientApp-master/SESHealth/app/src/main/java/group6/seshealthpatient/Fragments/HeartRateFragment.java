@@ -11,6 +11,7 @@ import android.app.Fragment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -57,6 +58,7 @@ public class HeartRateFragment extends Fragment {
     private XYMultipleSeriesDataset mDataset;
     private GraphicalView chart;
     private XYMultipleSeriesRenderer renderer;
+    private LinearLayout linearLayout;
     private static TextView text = null;
     private static PowerManager.WakeLock wakeLock = null;
 
@@ -70,6 +72,7 @@ public class HeartRateFragment extends Fragment {
     private String title = "pulse";
     private Context context;
     private int addX = -1;
+    private boolean cameraPermissionGranted = false;
     double addY;
     int[] xv = new int[300];
     int[] yv = new int[300];
@@ -112,71 +115,58 @@ public class HeartRateFragment extends Fragment {
         super.onCreate(savedInstanceState);
         View x = inflater.inflate(R.layout.fragment_heart_rate, container, false);
 
-        context = getActivity().getApplicationContext();
+        context = x.getContext();
 //use this method to allow camera work
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)
+        if (ContextCompat.checkSelfPermission(this.getContext(), Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
+            cameraPermissionGranted = true;
             Log.i("TEST","Granted");
         } else {
-            ActivityCompat.requestPermissions(getActivity(),
+            requestPermissions(
                     new String[]{Manifest.permission.CAMERA}, 1);//1 can be another integer
         }
-//the table
+
+        //the table
         // add the table into this layout
-        LinearLayout layout = (LinearLayout) x.findViewById(R.id.linearLayout1);
+        linearLayout = x.findViewById(R.id.linearLayout1);
 
-        // This class is used to place all points on a curve, a collection of points, and plot the curves based on those points
-        series = new XYSeries(title);
+        preview = x.findViewById(R.id.preview);
+        text = x.findViewById(R.id.text);
 
-        // Create an instance of a data set that will be used to create a chart
-        mDataset = new XYMultipleSeriesDataset();
-
-        //Add the point set to the data set
-        mDataset.addSeries(series);
-
-        // format
-        int color = Color.BLACK;
-        PointStyle style = PointStyle.CIRCLE;
-        renderer = buildRenderer(color, style, true);
-
-        setChartSettings(renderer, "X", "Y", 0, 300, 4, 16, Color.WHITE,
-                Color.WHITE);
-
-        //generate the chart
-        chart = ChartFactory.getLineChartView(context, mDataset, renderer);
-
-        // add
-        layout.addView(chart, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
-                ViewGroup.LayoutParams.FILL_PARENT));
-
-
-        // The Handler instance here will work with the Timer instance below to update the chart periodically
-        handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                updateChart();
-                super.handleMessage(msg);
-            }
-        };
-
-        task = new TimerTask() {
-            @Override
-            public void run() {
-                Message message = new Message();
-                message.what = 1;
-                handler.sendMessage(message);
-            }
-        };
-// curve
-        timer.schedule(task, 2, 40);
-
-        preview = (SurfaceView) x.findViewById(R.id.preview);
-        previewHolder = preview.getHolder();
-        previewHolder.addCallback(surfaceCallback);
-        previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-
-        text = (TextView) x.findViewById(R.id.text);
         return x;
+
+    }
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if(cameraPermissionGranted){
+            createChart();
+
+            camera = Camera.open();
+            startTime = System.currentTimeMillis();
+        }
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        if(cameraPermissionGranted){
+            camera.setPreviewCallback(null);
+            camera.stopPreview();
+            camera.release();
+            camera = null;
+        }
+
 
     }
 
@@ -276,30 +266,6 @@ public class HeartRateFragment extends Fragment {
         chart.invalidate();
     }
 
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        camera = Camera.open();
-
-        startTime = System.currentTimeMillis();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        camera.setPreviewCallback(null);
-        camera.stopPreview();
-        camera.release();
-        camera = null;
-    }
 
     private static PreviewCallback previewCallback = new PreviewCallback() {
 
@@ -434,4 +400,75 @@ public class HeartRateFragment extends Fragment {
         }
         return result;
     }
+
+    // Ask for location permission
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        Log.d("CAMERA: ", "REQUEST PERMISSION RESULT CALLED");
+        cameraPermissionGranted = false;
+
+        // User chose ALLOW
+        if (requestCode == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Log.d("CAMERA: ", "PERMISSION ALLOWED");
+
+            cameraPermissionGranted = true;
+        }
+        // User chose DENY
+        else{
+            Log.d("CAMERA: ", "PERMISSION DENIED");
+            return;
+        }
+    }
+
+    private void createChart(){
+        // This class is used to place all points on a curve, a collection of points, and plot the curves based on those points
+        series = new XYSeries(title);
+
+        // Create an instance of a data set that will be used to create a chart
+        mDataset = new XYMultipleSeriesDataset();
+
+        //Add the point set to the data set
+        mDataset.addSeries(series);
+
+        // format
+        int color = Color.BLACK;
+        PointStyle style = PointStyle.CIRCLE;
+        renderer = buildRenderer(color, style, true);
+
+        setChartSettings(renderer, "X", "Y", 0, 300, 4, 16, Color.WHITE,
+                Color.WHITE);
+
+        //generate the chart
+        chart = ChartFactory.getLineChartView(context, mDataset, renderer);
+
+        // add
+        linearLayout.addView(chart, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
+                ViewGroup.LayoutParams.FILL_PARENT));
+
+
+        // The Handler instance here will work with the Timer instance below to update the chart periodically
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                updateChart();
+                super.handleMessage(msg);
+            }
+        };
+
+        task = new TimerTask() {
+            @Override
+            public void run() {
+                Message message = new Message();
+                message.what = 1;
+                handler.sendMessage(message);
+            }
+        };
+// curve
+        timer.schedule(task, 2, 40);
+        previewHolder = preview.getHolder();
+        previewHolder.addCallback(surfaceCallback);
+        previewHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+    }
+    
 }

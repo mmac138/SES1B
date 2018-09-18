@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.support.v4.view.ViewPager;
+import group6.seshealthpatient.SlideAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +28,9 @@ import group6.seshealthpatient.R;
  */
 public class PatientInformationFragment extends Fragment {
 
+    private ViewPager viewPager;
+    private SliderAdapter adapter;
+
 
     // Note how Butter Knife also works on Fragments, but here it is a little different
     @BindView(R.id.blank_frag_msg)
@@ -39,6 +44,9 @@ public class PatientInformationFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        viewPager = (ViewPager) findViewById(R.id.info_infoVP);
+        adapter = new SlideAdpater(this);
+        viewPager.setAdapter(adapter);
         //TODO: Instead of hardcoding the title perhaps take the user name from somewhere?
         // Note the use of getActivity() to reference the Activity holding this fragment
         getActivity().setTitle("Username Information");
@@ -61,6 +69,6 @@ public class PatientInformationFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // Now that the view has been created, we can use butter knife functionality
-        blankFragmentTV.setText("Welcome to this fragment");
+        blankFragmentTV.setText("Patient Info");
     }
 }

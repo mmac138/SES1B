@@ -1,15 +1,13 @@
 package group6.seshealthpatient.Fragments;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.support.v4.view.ViewPager;
-import group6.seshealthpatient.SlideAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,9 +26,6 @@ import group6.seshealthpatient.R;
  */
 public class PatientInformationFragment extends Fragment {
 
-    private ViewPager viewPager;
-    private SliderAdapter adapter;
-
 
     // Note how Butter Knife also works on Fragments, but here it is a little different
     @BindView(R.id.blank_frag_msg)
@@ -44,9 +39,6 @@ public class PatientInformationFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = (ViewPager) findViewById(R.id.info_infoVP);
-        adapter = new SlideAdpater(this);
-        viewPager.setAdapter(adapter);
         //TODO: Instead of hardcoding the title perhaps take the user name from somewhere?
         // Note the use of getActivity() to reference the Activity holding this fragment
         getActivity().setTitle("Username Information");

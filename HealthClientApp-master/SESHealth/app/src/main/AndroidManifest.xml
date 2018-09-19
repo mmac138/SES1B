@@ -23,7 +23,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity android:name="group6.seshealthpatient.Activities.LoginActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +32,10 @@
             </intent-filter>
         </activity>
         <activity android:name="group6.seshealthpatient.Activities.MainActivity"></activity>
-        <activity android:name="group6.seshealthpatient.Activities.RegisterActivity"></activity>
+        <activity android:name="group6.seshealthpatient.Activities.RegisterActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name="group6.seshealthpatient.Activities.EditProfileActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
 
 
         //linking to ggmap APIs key

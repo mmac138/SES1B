@@ -2,15 +2,32 @@ package group6.seshealthpatient.Fragments;
 
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import group6.seshealthpatient.Activities.EditProfileActivity;
+import group6.seshealthpatient.Activities.Patient;
 import group6.seshealthpatient.R;
 
 /**
@@ -26,11 +43,29 @@ import group6.seshealthpatient.R;
  */
 public class PatientInformationFragment extends Fragment {
 
+    //Firebase contents
+    private FirebaseDatabase firebaseDatabase;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference ref;
+    private String userID;
 
-    // Note how Butter Knife also works on Fragments, but here it is a little different
-    @BindView(R.id.blank_frag_msg)
-    TextView blankFragmentTV;
+    //Global contents
+    private Context context;
+    private static final String TAG = "PatientInfoFragment";
 
+    //XML contents
+    @BindView(R.id.info_fullNameTV)
+    TextView info_fullNameTV;
+    @BindView(R.id.info_dobTV)
+    TextView info_dobTV;
+    @BindView(R.id.info_genderTV)
+    TextView info_genderTV;
+    @BindView(R.id.info_profileIV)
+    ImageView info_profileIV;
+    @BindView(R.id.info_editProfileBtn)
+    Button info_editProfileBtn;
+    @BindView(R.id.info_bodyIV)
+    ImageView info_bodyIV;
 
     public PatientInformationFragment() {
         // Required empty public constructor
@@ -45,22 +80,50 @@ public class PatientInformationFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_patient_information, container, false);
 
-        // Note how we are telling butter knife to bind during the on create view method
         ButterKnife.bind(this, v);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        ref = firebaseDatabase.getReference("Patient");
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                Patient patient = dataSnapshot.child(user.getUid()).getValue(Patient.class);
+
+                info_fullNameTV.setText(patient.getName());
+                info_dobTV.setText("D.O.B: " + patient.getDob());
+                info_genderTV.setText("Gender: " + patient.getGender());
+                if(patient.getGender().equals("Male")) {
+                    info_bodyIV.setImageResource(R.drawable.male_body);
+                } else {
+                    info_bodyIV.setImageResource(R.drawable.female_body);
+                }
+
+
+                Log.d(TAG, "datasnapshot: " + dataSnapshot);
+                Log.d(TAG, "User id: " + user.getUid());
+                Log.d(TAG, "Patient: " + patient);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.print("Error");
+            }
+        });
 
         return v;
     }
 
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        // Now that the view has been created, we can use butter knife functionality
-        blankFragmentTV.setText("Patient Info");
+    @OnClick(R.id.info_editProfileBtn)
+    public void editProfile() {
+        Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+        startActivity(intent);
     }
 }

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -143,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                   //  finish();
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    Toast.makeText(getBaseContext(), "Logging you in...", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Login Successful", Toast.LENGTH_SHORT).show();
                     finish();
 
                 }

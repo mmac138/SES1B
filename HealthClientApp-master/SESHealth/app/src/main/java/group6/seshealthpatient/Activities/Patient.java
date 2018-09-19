@@ -1,96 +1,101 @@
 package group6.seshealthpatient.Activities;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Patient {
-    String patientID;
-    String patientName;
-    String patientEmail;
-    String patientPassword;
-    String patientMedicalInfo;
-    String patientDOB;
-    String patientHeight;
-    String patientWeight;
-    String patientGender;
+    private String name;
+    private String email;
+    private String medicalInfo;
+    private String dob;
+    private String height;
+    private String weight;
+    private String gender;
 
-    public Patient(){
+    public Patient() {
 
     }
-    public Patient(String patientName, String patientEmail, String patientMedicalInfo, String patientDOB, String patientHeight, String patientWeight, String patientGender){
 
-        patientName=patientName;
-        patientEmail = patientEmail;
-        patientMedicalInfo = patientMedicalInfo;
-        patientDOB = patientDOB;
-        patientHeight = patientHeight;
-        patientWeight = patientWeight;
-        patientGender = patientGender;
+    public Patient(String name, String email, String medicalInfo, String dob, String height, String weight, String gender) {
+        this.name = name;
+        this.email = email;
+        this.medicalInfo = medicalInfo;
+        this.dob = dob;
+        this.height = height;
+        this.weight = weight;
+        this.gender = gender;
     }
 
-    public String getPatientID() {
-        return patientID;
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("name", name);
+        result.put("email", email);
+        result.put("medicalInfo", medicalInfo);
+        result.put("dob", dob);
+        result.put("height", height);
+        result.put("weight", weight);
+        result.put("gender", gender);
+
+        return result;
     }
 
-    public void setPatientID(String patientID) {
-        this.patientID = patientID;
+    public String getName() {
+        return name;
     }
 
-    public String getPatientName() {
-        return patientName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public String getEmail() {
+        return email;
     }
 
-    public String getPatientEmail() {
-        return patientEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setPatientEmail(String patientEmail) {
-        this.patientEmail = patientEmail;
+    public String getMedicalInfo() {
+        return medicalInfo;
     }
 
-    public String getPatientPassword() {
-        return patientPassword;
+    public void setMedicalInfo(String medicalInfo) {
+        this.medicalInfo = medicalInfo;
     }
 
-    public void setPatientPassword(String patientPassword) {
-        this.patientPassword = patientPassword;
+    public String getDob() {
+        return dob;
     }
 
-    public String getPatientMedicalInfo() {
-        return patientMedicalInfo;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
-    public void setPatientMedicalInfo(String patientMedicalInfo) {
-        this.patientMedicalInfo = patientMedicalInfo;
+    public String getHeight() {
+        return height;
     }
 
-    public String getPatientDOB() {
-        return patientDOB;
+    public void setHeight(String height) {
+        this.height = height;
     }
 
-    public void setPatientDOB(String patientDOB) {
-        this.patientDOB = patientDOB;
+    public String getWeight() {
+        return weight;
     }
 
-    public String getPatientHeight() {
-        return patientHeight;
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
-    public void setPatientHeight(String patientHeight) {
-        this.patientHeight = patientHeight;
+    public String getGender() {
+        return gender;
     }
 
-    public String getPatientWeight() {
-        return patientWeight;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
-
-    public void setPatientWeight(String patientWeight) {
-        this.patientWeight = patientWeight;
-    }
-
-    public String getPatientGender(){
-        return patientGender;
-    }
-    public void setPatientGender(String patientGender){this.patientGender = patientGender;}
 }
+

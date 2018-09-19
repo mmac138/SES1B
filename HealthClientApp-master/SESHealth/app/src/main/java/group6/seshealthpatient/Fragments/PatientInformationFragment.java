@@ -60,12 +60,14 @@ public class PatientInformationFragment extends Fragment {
     TextView info_dobTV;
     @BindView(R.id.info_genderTV)
     TextView info_genderTV;
-    @BindView(R.id.info_profileIV)
-    ImageView info_profileIV;
     @BindView(R.id.info_editProfileBtn)
     Button info_editProfileBtn;
     @BindView(R.id.info_bodyIV)
     ImageView info_bodyIV;
+    @BindView(R.id.info_weightTV)
+    TextView info_weightTV;
+    @BindView(R.id.info_heightTV)
+    TextView info_heightTV;
 
     public PatientInformationFragment() {
         // Required empty public constructor
@@ -76,7 +78,7 @@ public class PatientInformationFragment extends Fragment {
         super.onCreate(savedInstanceState);
         //TODO: Instead of hardcoding the title perhaps take the user name from somewhere?
         // Note the use of getActivity() to reference the Activity holding this fragment
-        getActivity().setTitle("Username Information");
+        getActivity().setTitle("Patient Information");
     }
 
     @Override
@@ -100,10 +102,12 @@ public class PatientInformationFragment extends Fragment {
                 info_fullNameTV.setText(patient.getName());
                 info_dobTV.setText("D.O.B: " + patient.getDob());
                 info_genderTV.setText("Gender: " + patient.getGender());
+                info_weightTV.setText("Weight: " + patient.getWeight() + "kg");
+                info_heightTV.setText("Height: " + patient.getHeight() + "cm");
                 if(patient.getGender().equals("Male")) {
-                    info_bodyIV.setImageResource(R.drawable.male_body);
+                    info_bodyIV.setImageResource(R.drawable.male_silhouette);
                 } else {
-                    info_bodyIV.setImageResource(R.drawable.female_body);
+                    info_bodyIV.setImageResource(R.drawable.female_silhouette);
                 }
 
 

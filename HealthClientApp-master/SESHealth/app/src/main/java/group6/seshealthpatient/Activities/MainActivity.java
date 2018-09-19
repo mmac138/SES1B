@@ -5,21 +5,17 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-
-
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 
 import group6.seshealthpatient.Fragments.DataPacketFragment;
 import group6.seshealthpatient.Fragments.HeartRateFragment;
@@ -28,8 +24,6 @@ import group6.seshealthpatient.Fragments.PatientInformationFragment;
 import group6.seshealthpatient.Fragments.RecordVideoFragment;
 import group6.seshealthpatient.Fragments.SendFileFragment;
 import group6.seshealthpatient.R;
-
-import static group6.seshealthpatient.R.menu.drawer_view;
 
 
 /**
@@ -105,8 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //TODO update toolbar to menu title
-        getSupportActionBar().setTitle("iDoctor");
+        getSupportActionBar().setTitle("Patient Information");
 
         // Set up the menu button
         ActionBar actionbar = getSupportActionBar();
@@ -134,36 +127,42 @@ public class MainActivity extends AppCompatActivity {
                                     // change the fragment to the new fragment
                                     ChangeFragment(new PatientInformationFragment());
                                     currentState = MenuStates.PATIENT_INFO;
+                                    getSupportActionBar().setTitle("Patient Information");
                                 }
                                 break;
                             case R.id.nav_data_packet:
                                 if (currentState != MenuStates.DATA_PACKET) {
                                     ChangeFragment(new DataPacketFragment());
                                     currentState = MenuStates.DATA_PACKET;
+                                    getSupportActionBar().setTitle("Create Data Packet");
                                 }
                                 break;
                             case R.id.nav_heartrate:
                                 if (currentState != MenuStates.HEARTRATE) {
                                     ChangeFragment(new HeartRateFragment());
                                     currentState = MenuStates.HEARTRATE;
+                                    getSupportActionBar().setTitle("Heart Rate");
                                 }
                                 break;
                             case R.id.nav_recordvideo:
                                 if (currentState != MenuStates.RECORD_VIDEO) {
                                     ChangeFragment(new RecordVideoFragment());
                                     currentState = MenuStates.RECORD_VIDEO;
+                                    getSupportActionBar().setTitle("Record Video");
                                 }
                                 break;
                             case R.id.nav_sendfile:
                                 if (currentState != MenuStates.SEND_FILE) {
                                     ChangeFragment(new SendFileFragment());
                                     currentState = MenuStates.SEND_FILE;
+                                    getSupportActionBar().setTitle("Send Local File");
                                 }
                                 break;
                             case R.id.nav_map:
                                 if (currentState != MenuStates.NAVIGATION_MAP) {
                                     ChangeFragment(new MapFragment());
                                     currentState = MenuStates.NAVIGATION_MAP;
+                                    getSupportActionBar().setTitle("Facilities Map");
                                 }
                                 break;
                             case R.id.sign_out:

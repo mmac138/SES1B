@@ -89,6 +89,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
         View v = inflater.inflate(R.layout.fragment_map, container, false);
 
+        getActivity().setTitle("Facilities Map");
+
         // initialising global variables
         fragmentView = v;
         fragmentContext = v.getContext();
@@ -332,7 +334,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     public void onMapReady(GoogleMap googleMap) {
 
         Log.d(TAG, "ON MAP READY");
-        Toast.makeText(fragmentContext, "ON MAP READY", Toast.LENGTH_LONG).show();
+        Toast.makeText(fragmentContext, "GPS Ready", Toast.LENGTH_LONG).show();
 
         // Initialise the current map with googleMap
         mMap = googleMap;

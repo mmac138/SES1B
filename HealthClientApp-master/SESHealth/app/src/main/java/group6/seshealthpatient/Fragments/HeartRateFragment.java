@@ -1,18 +1,19 @@
 package group6.seshealthpatient.Fragments;
 
 import android.Manifest;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.hardware.Camera;
+import android.hardware.Camera.PreviewCallback;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,21 +25,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
-
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import group6.seshealthpatient.Fragments.ImageProcessing;
-import group6.seshealthpatient.R;
-
-import group6.seshealthpatient.R;
-
-import android.content.res.Configuration;
-import android.hardware.Camera.PreviewCallback;
-import android.widget.Toast;
-
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 import org.achartengine.chart.PointStyle;
@@ -46,6 +32,12 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import group6.seshealthpatient.R;
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -116,6 +108,8 @@ public class HeartRateFragment extends Fragment {
         View x = inflater.inflate(R.layout.fragment_heart_rate, container, false);
 
         context = x.getContext();
+
+        getActivity().setTitle("Heart Rate");
 //use this method to allow camera work
         if (ContextCompat.checkSelfPermission(this.getContext(), Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {

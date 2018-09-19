@@ -23,17 +23,6 @@ import butterknife.ButterKnife;
 import group6.seshealthpatient.DoctorActivities.Doctor;
 import group6.seshealthpatient.R;
 
-/**
- * Class: PatientInformationFragment
- * Extends: {@link Fragment}
- * Author: Carlos Tirado < Carlos.TiradoCorts@uts.edu.au> and YOU!
- * Description:
- * <p>
- * This fragment's job will be that to display patients information, and be able to edit that
- * information (either edit it in this fragment or a new fragment, up to you!)
- * <p>
-
- */
 public class DoctorInformationFragment extends Fragment {
 
     //Firebase contents
@@ -63,11 +52,10 @@ public class DoctorInformationFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.doctor_fragment_doctor_information, container, false);
-
         ButterKnife.bind(this, v);
 
+        //Access Doctor child
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         ref = firebaseDatabase.getReference("Doctor");
@@ -76,8 +64,9 @@ public class DoctorInformationFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+                //Gather users Doctor class
                 Doctor doctor = dataSnapshot.child(user.getUid()).getValue(Doctor.class);
-
+                //Update TextView with Doctor class
                 info_fullNameTV.setText(doctor.getName());
             }
 

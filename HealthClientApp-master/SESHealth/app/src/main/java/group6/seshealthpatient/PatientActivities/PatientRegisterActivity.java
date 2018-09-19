@@ -24,25 +24,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import group6.seshealthpatient.MainActivities.LoginActivity;
+import group6.seshealthpatient.MainActivities.PreRegisterActivity;
 import group6.seshealthpatient.R;
-
-/**
- * Created by Nick on 27/08/2018.
- */
 
 public class PatientRegisterActivity extends AppCompatActivity {
 
-    /**
-     * Use the @BindView annotation so Butter Knife can search for that view, and cast it for you
-     * (in this case it will get casted to Edit Text)
-     */
+    //XML Contents
     @BindView(R.id.reg_full_nameET)
     EditText usernameEditText;
-
-    /**
-     * If you want to know more about Butter Knife, please, see the link I left at the build.gradle
-     * file.
-     */
     @BindView(R.id.reg_maleRB)
     RadioButton maleRB;
     RadioButton radioButton;
@@ -66,34 +55,28 @@ public class PatientRegisterActivity extends AppCompatActivity {
     EditText emailET;
     @BindView(R.id.reg_passwordET)
     EditText passwordET;
+
+    //Firebase Contents
     FirebaseDatabase fireBaseDatabase;
     DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
 
-    /**
-     * It is helpful to create a tag for every activity/fragment. It will be easier to understand
-     * log messages by having different tags on different places.
-     */
+    //Global Contents
     private static String TAG = "PatientRegisterActivity";
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.patient_activity_register);
-        // You need this line on your activity so Butter Knife knows what Activity-View we are referencing
         ButterKnife.bind(this);
 
+        //Access Patient child
         firebaseAuth = FirebaseAuth.getInstance();
-
         databaseReference = FirebaseDatabase.getInstance().getReference("Patient");
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email = emailET.getText().toString().trim();
                 String password = passwordET.getText().toString().trim();
                 String name = usernameEditText.getText().toString();
@@ -105,8 +88,9 @@ public class PatientRegisterActivity extends AppCompatActivity {
                 radioButton = (RadioButton) findViewById(selectedId);
                 String gender = radioButton.getText().toString();
 
+                //Create new Patient class
                 final Patient patient = new Patient(name, email, medicalInfo, dob, height, weight, gender);
-
+                //Check if all fields are filled
                 if (name.isEmpty() || dob.isEmpty() || height.isEmpty() || weight.isEmpty() || medicalInfo.isEmpty()
                         || email.isEmpty()) {
                     Toast.makeText(getBaseContext(), "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
@@ -117,6 +101,7 @@ public class PatientRegisterActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
+                                //Add new Patient to Firebase Database
                                 databaseReference.child(user.getUid()).setValue(patient);
                                 Toast.makeText(PatientRegisterActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                                 login();
@@ -125,7 +110,6 @@ public class PatientRegisterActivity extends AppCompatActivity {
                             }
                         }
                     });
-                    //uploading data to database
                 }
             }
 
@@ -136,6 +120,13 @@ public class PatientRegisterActivity extends AppCompatActivity {
     @OnClick(R.id.loginTV)
     public void login() {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, PreRegisterActivity.class);
         startActivity(intent);
         finish();
     }

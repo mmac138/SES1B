@@ -24,10 +24,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import group6.seshealthpatient.MainActivities.LoginActivity;
+import group6.seshealthpatient.MainActivities.PreRegisterActivity;
 import group6.seshealthpatient.R;
 
 public class DoctorRegisterActivity extends AppCompatActivity {
 
+    //XML Contents
     @BindView(R.id.reg_full_nameET)
     EditText usernameEditText;
     @BindView(R.id.reg_maleRB)
@@ -48,27 +50,27 @@ public class DoctorRegisterActivity extends AppCompatActivity {
     @BindView(R.id.reg_passwordET)
     EditText passwordET;
 
+    //Firebase Contents
     FirebaseDatabase fireBaseDatabase;
     DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
 
+    //Global Contents
     private static String TAG = "DoctorRegisterActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.doctor_activity_register);
-        // You need this line on your activity so Butter Knife knows what Activity-View we are referencing
         ButterKnife.bind(this);
 
+        //Access Doctor child
         firebaseAuth = FirebaseAuth.getInstance();
-
         databaseReference = FirebaseDatabase.getInstance().getReference("Doctor");
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email = emailET.getText().toString().trim();
                 String password = passwordET.getText().toString().trim();
                 String name = usernameEditText.getText().toString();
@@ -77,8 +79,9 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                 radioButton = (RadioButton) findViewById(selectedId);
                 String gender = radioButton.getText().toString();
 
+                //Create new Doctor Profile
                 final Doctor doctor = new Doctor(name, email, dob, gender);
-
+                //Check if all fields are filled
                 if (name.isEmpty() || dob.isEmpty() || email.isEmpty()) {
                     Toast.makeText(getBaseContext(), "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
                 } else {
@@ -88,6 +91,7 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
+                                //Add Doctor to Firebase Database
                                 databaseReference.child(user.getUid()).setValue(doctor);
                                 Toast.makeText(group6.seshealthpatient.DoctorActivities.DoctorRegisterActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                                 login();
@@ -96,7 +100,6 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                             }
                         }
                     });
-                    //uploading data to database
                 }
             }
 
@@ -107,6 +110,13 @@ public class DoctorRegisterActivity extends AppCompatActivity {
     @OnClick(R.id.loginTV)
     public void login() {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, PreRegisterActivity.class);
         startActivity(intent);
         finish();
     }

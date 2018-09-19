@@ -54,9 +54,9 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.patient_activity_edit_profile);
-        // You need this line on your activity so Butter Knife knows what Activity-View we are referencing
         ButterKnife.bind(this);
 
+        //Access Patient child
         firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = firebaseAuth.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -65,7 +65,9 @@ public class EditProfileActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Gather users Patient class
                 Patient patient = dataSnapshot.child(user.getUid()).getValue(Patient.class);
+                //Fill EditText with current values
                 edit_full_nameET.setText(patient.getName());
                 edit_dob_ET.setText(patient.getDob());
                 edit_heightET.setText(patient.getHeight());
@@ -82,23 +84,25 @@ public class EditProfileActivity extends AppCompatActivity {
         edit_makeChangesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final String name = edit_full_nameET.getText().toString();
                 final String dob = edit_dob_ET.getText().toString();
                 final String height = edit_heightET.getText().toString();
                 final String weight = edit_weightET.getText().toString();
                 final String medicalInfo = edit_medicalInfoET.getText().toString();
-
+                //Check that all fields are filled
                 if (name.isEmpty() || dob.isEmpty() || height.isEmpty() || weight.isEmpty() || medicalInfo.isEmpty()) {
                     Toast.makeText(getBaseContext(), "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
                 } else {
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            //Gather users Patient class
                             Patient patient = dataSnapshot.child(user.getUid()).getValue(Patient.class);
                             String email = patient.getEmail();
                             String gender = patient.getGender();
+                            //Create updated Patient class
                             Patient newPatient = new Patient(name, email, medicalInfo, dob, height, weight, gender);
+                            //Upload updated Patient class to Firebase Database
                             databaseReference.child(user.getUid()).setValue(newPatient);
                             updateProfile();
                         }

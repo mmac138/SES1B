@@ -19,13 +19,13 @@
 
     <TextView
         android:id="@+id/createprofileTV"
-        android:layout_width="278dp"
+        android:layout_width="wrap_content"
         android:layout_height="43dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/caviar_dreams"
-        android:text="@string/register_create_profile"
+        android:text="@string/register_doctor"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"

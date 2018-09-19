@@ -23,64 +23,20 @@ import group6.seshealthpatient.MainActivities.LoginActivity;
 import group6.seshealthpatient.R;
 
 
-/**
- * Class: PatientMainActivity
- * Extends:  {@link AppCompatActivity}
- * Author:  Carlos Tirado < Carlos.TiradoCorts@uts.edu.au>, and YOU!
- * Description:
- * <p>
- * For this project I encourage you to use Fragments. It is up to you to build up the app as
- * you want, but it will be a good practice to learn on how to use Fragments. A very good tutorial
- * on how to use fragments can be found on this site:
- * http://www.vogella.com/tutorials/AndroidFragments/article.html
- * <p>
- * I basically chose to use fragments because of the design of the app, again, you can choose to change
- * completely the design of the app, but for this design specifically I will use Fragments.
- * <p>
- */
 public class DoctorMainActivity extends AppCompatActivity {
 
-    /**
-     * A basic Drawer layout that helps you build the side menu. I followed the steps on how to
-     * build a menu from this site:
-     * https://developer.android.com/training/implementing-navigation/nav-drawer
-     * I recommend you to have a read of it if you need to do any changes to the code.
-     */
+    //XML Contents
     private DrawerLayout mDrawerLayout;
-
-    /**
-     * A reference to the toolbar
-     */
     private Toolbar toolbar;
-
-    /**
-     * Helps to manage the fragment that is being used in the main view.
-     */
     private FragmentManager fragmentManager;
-
-    /**
-     * TAG to use
-     */
-    private static String TAG = "DoctorMainActivity";
-
-    /**
-     * I am using this enum to know which is the current fragment being displayed, you will see
-     * what I mean with this later in this code.
-     */
     private enum MenuStates {
         DOCTOR_INFO, VIEW_PATIENTS
     }
-
-    /**
-     * The current fragment being displayed.
-     */
     private group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates currentState;
 
-    /**
-     This is used to warn the user to exit the app when the back button is pressed twice
-     */
+    //Global Contents
+    private static String TAG = "DoctorMainActivity";
     private boolean doubleBackToExitPressedOnce = false;
-
 
     @SuppressLint("ResourceType")
     @Override
@@ -222,16 +178,6 @@ public class DoctorMainActivity extends AppCompatActivity {
             }
         }, 2000);
     }
-
-    /**
-     * This function changes the title of the fragment.
-     *
-     * @param newTitle The new title to write in the
-     */
-    public void ChangeTitle(String newTitle) {
-        toolbar.setTitle(newTitle);
-    }
-
 
     /**
      * This function allows to change the content of the Fragment holder

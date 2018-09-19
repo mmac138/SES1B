@@ -31,7 +31,7 @@ import group6.seshealthpatient.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //Firebase contents
+    //Firebase Contents
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;

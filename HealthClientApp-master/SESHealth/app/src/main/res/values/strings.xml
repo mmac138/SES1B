@@ -16,6 +16,8 @@
     <string name="register_gender">Gender:</string>
     <string name="editprofile_editprofile">Edit Profile</string>
     <string name="editprofile_makechanges">Make Changes</string>
+    <string name="doctor_information">Doctor Information</string>
+    <string name="view_patients">View Patients</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

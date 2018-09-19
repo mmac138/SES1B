@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Fragments;
+package group6.seshealthpatient.PatientFragments;
 
 
 import android.app.Fragment;
@@ -26,8 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import group6.seshealthpatient.Activities.EditProfileActivity;
-import group6.seshealthpatient.Activities.Patient;
+import group6.seshealthpatient.PatientActivities.EditProfileActivity;
+import group6.seshealthpatient.PatientActivities.Patient;
 import group6.seshealthpatient.R;
 
 /**
@@ -85,7 +85,7 @@ public class PatientInformationFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_patient_information, container, false);
+        View v = inflater.inflate(R.layout.patient_fragment_patient_information, container, false);
 
         ButterKnife.bind(this, v);
 

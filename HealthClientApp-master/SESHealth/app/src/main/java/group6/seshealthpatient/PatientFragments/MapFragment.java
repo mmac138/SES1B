@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Fragments;
+package group6.seshealthpatient.PatientFragments;
 
 
 import android.Manifest;
@@ -87,7 +87,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_map, container, false);
+        View v = inflater.inflate(R.layout.patient_fragment_map, container, false);
 
         getActivity().setTitle("Facilities Map");
 

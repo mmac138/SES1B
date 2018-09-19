@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Fragments;
+package group6.seshealthpatient.PatientFragments;
 
 public abstract class ImageProcessing {
 

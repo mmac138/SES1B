@@ -22,7 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        <activity android:name="group6.seshealthpatient.Activities.LoginActivity"
+        <activity android:name="group6.seshealthpatient.MainActivities.LoginActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -31,10 +31,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="group6.seshealthpatient.Activities.MainActivity"></activity>
-        <activity android:name="group6.seshealthpatient.Activities.RegisterActivity"
+        <activity android:name="group6.seshealthpatient.MainActivities.PreRegisterActivity"></activity>
+        <activity android:name="group6.seshealthpatient.PatientActivities.PatientMainActivity"></activity>
+        <activity android:name="group6.seshealthpatient.PatientActivities.PatientRegisterActivity"
             android:windowSoftInputMode="adjustPan"></activity>
-        <activity android:name="group6.seshealthpatient.Activities.EditProfileActivity"
+        <activity android:name="group6.seshealthpatient.PatientActivities.EditProfileActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name="group6.seshealthpatient.DoctorActivities.DoctorMainActivity"></activity>
+        <activity android:name="group6.seshealthpatient.DoctorActivities.DoctorRegisterActivity"
             android:windowSoftInputMode="adjustPan"></activity>
 
 

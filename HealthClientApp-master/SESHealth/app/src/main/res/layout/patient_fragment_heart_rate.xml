@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
-    tools:context="group6.seshealthpatient.Activities.LoginActivity">
+    tools:context="group6.seshealthpatient.MainActivities.LoginActivity">
 
     <SurfaceView
         android:id="@+id/preview"

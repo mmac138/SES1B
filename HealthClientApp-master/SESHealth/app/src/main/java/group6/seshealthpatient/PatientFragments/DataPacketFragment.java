@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Fragments;
+package group6.seshealthpatient.PatientFragments;
 
 
 import android.os.Bundle;
@@ -24,7 +24,7 @@ public class DataPacketFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_data_packet, container, false);
+        return inflater.inflate(R.layout.patient_fragment_data_packet, container, false);
     }
 
 }

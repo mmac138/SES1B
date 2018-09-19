@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Fragments;
+package group6.seshealthpatient.PatientFragments;
 
 
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import group6.seshealthpatient.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecordVideoFragment extends Fragment {
+public class SendFileFragment extends Fragment {
 
 
-    public RecordVideoFragment() {
+    public SendFileFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class RecordVideoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_record_video, container, false);
+        return inflater.inflate(R.layout.patient_fragment_send_file, container, false);
     }
 
 }

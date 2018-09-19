@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Fragments;
+package group6.seshealthpatient.PatientFragments;
 
 import android.Manifest;
 import android.app.Fragment;
@@ -105,7 +105,7 @@ public class HeartRateFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View x = inflater.inflate(R.layout.fragment_heart_rate, container, false);
+        View x = inflater.inflate(R.layout.patient_fragment_heart_rate, container, false);
 
         context = x.getContext();
 

@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Activities;
+package group6.seshealthpatient.DoctorActivities;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
@@ -17,17 +17,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import group6.seshealthpatient.Fragments.DataPacketFragment;
-import group6.seshealthpatient.Fragments.HeartRateFragment;
-import group6.seshealthpatient.Fragments.MapFragment;
-import group6.seshealthpatient.Fragments.PatientInformationFragment;
-import group6.seshealthpatient.Fragments.RecordVideoFragment;
-import group6.seshealthpatient.Fragments.SendFileFragment;
+import group6.seshealthpatient.DoctorFragments.DoctorInformationFragment;
+import group6.seshealthpatient.DoctorFragments.ViewPatientsFragment;
+import group6.seshealthpatient.MainActivities.LoginActivity;
 import group6.seshealthpatient.R;
 
 
 /**
- * Class: MainActivity
+ * Class: PatientMainActivity
  * Extends:  {@link AppCompatActivity}
  * Author:  Carlos Tirado < Carlos.TiradoCorts@uts.edu.au>, and YOU!
  * Description:
@@ -41,7 +38,7 @@ import group6.seshealthpatient.R;
  * completely the design of the app, but for this design specifically I will use Fragments.
  * <p>
  */
-public class MainActivity extends AppCompatActivity {
+public class DoctorMainActivity extends AppCompatActivity {
 
     /**
      * A basic Drawer layout that helps you build the side menu. I followed the steps on how to
@@ -64,23 +61,23 @@ public class MainActivity extends AppCompatActivity {
     /**
      * TAG to use
      */
-    private static String TAG = "MainActivity";
+    private static String TAG = "DoctorMainActivity";
 
     /**
      * I am using this enum to know which is the current fragment being displayed, you will see
      * what I mean with this later in this code.
      */
     private enum MenuStates {
-        PATIENT_INFO, DATA_PACKET, HEARTRATE, RECORD_VIDEO, SEND_FILE, NAVIGATION_MAP
+        DOCTOR_INFO, VIEW_PATIENTS
     }
 
     /**
      * The current fragment being displayed.
      */
-    private MenuStates currentState;
+    private group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates currentState;
 
     /**
-        This is used to warn the user to exit the app when the back button is pressed twice
+     This is used to warn the user to exit the app when the back button is pressed twice
      */
     private boolean doubleBackToExitPressedOnce = false;
 
@@ -89,17 +86,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.doctor_activity_main);
 
         // the default fragment on display is the patient information
-        currentState = MenuStates.PATIENT_INFO;
+        currentState = group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates.DOCTOR_INFO;
 
         // go look for the main drawer layout
         mDrawerLayout = findViewById(R.id.main_drawer_layout);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Patient Information");
+        getSupportActionBar().setTitle("Doctor Information");
 
         // Set up the menu button
         ActionBar actionbar = getSupportActionBar();
@@ -120,49 +117,21 @@ public class MainActivity extends AppCompatActivity {
 
                         // Using a switch to see which item on the menu was clicked
                         switch (menuItem.getItemId()) {
-                            // You can find these id's at: res -> menu -> drawer_view.xml
-                            case R.id.nav_patient_info:
+                            // You can find these id's at: res -> menu -> patient_drawer_view.xmlview.xml
+                            case R.id.nav_doctor_info:
                                 // If the user clicked on a different item than the current item
-                                if (currentState != MenuStates.PATIENT_INFO) {
+                                if (currentState != group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates.DOCTOR_INFO) {
                                     // change the fragment to the new fragment
-                                    ChangeFragment(new PatientInformationFragment());
-                                    currentState = MenuStates.PATIENT_INFO;
-                                    getSupportActionBar().setTitle("Patient Information");
+                                    ChangeFragment(new DoctorInformationFragment());
+                                    currentState = group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates.DOCTOR_INFO;
+                                    getSupportActionBar().setTitle("Doctor Information");
                                 }
                                 break;
                             case R.id.nav_data_packet:
-                                if (currentState != MenuStates.DATA_PACKET) {
-                                    ChangeFragment(new DataPacketFragment());
-                                    currentState = MenuStates.DATA_PACKET;
-                                    getSupportActionBar().setTitle("Create Data Packet");
-                                }
-                                break;
-                            case R.id.nav_heartrate:
-                                if (currentState != MenuStates.HEARTRATE) {
-                                    ChangeFragment(new HeartRateFragment());
-                                    currentState = MenuStates.HEARTRATE;
-                                    getSupportActionBar().setTitle("Heart Rate");
-                                }
-                                break;
-                            case R.id.nav_recordvideo:
-                                if (currentState != MenuStates.RECORD_VIDEO) {
-                                    ChangeFragment(new RecordVideoFragment());
-                                    currentState = MenuStates.RECORD_VIDEO;
-                                    getSupportActionBar().setTitle("Record Video");
-                                }
-                                break;
-                            case R.id.nav_sendfile:
-                                if (currentState != MenuStates.SEND_FILE) {
-                                    ChangeFragment(new SendFileFragment());
-                                    currentState = MenuStates.SEND_FILE;
-                                    getSupportActionBar().setTitle("Send Local File");
-                                }
-                                break;
-                            case R.id.nav_map:
-                                if (currentState != MenuStates.NAVIGATION_MAP) {
-                                    ChangeFragment(new MapFragment());
-                                    currentState = MenuStates.NAVIGATION_MAP;
-                                    getSupportActionBar().setTitle("Facilities Map");
+                                if (currentState != group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates.VIEW_PATIENTS) {
+                                    ChangeFragment(new ViewPatientsFragment());
+                                    currentState = group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates.VIEW_PATIENTS;
+                                    getSupportActionBar().setTitle("View Patients");
                                 }
                                 break;
                             case R.id.sign_out:
@@ -205,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Add the default Fragment once the user logged in
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.add(R.id.fragment_container, new PatientInformationFragment());
+        ft.add(R.id.fragment_container, new DoctorInformationFragment());
         ft.commit();
     }
 

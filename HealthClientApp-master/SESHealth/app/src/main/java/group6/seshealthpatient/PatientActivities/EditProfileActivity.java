@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Activities;
+package group6.seshealthpatient.PatientActivities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -53,7 +53,7 @@ public class EditProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile);
+        setContentView(R.layout.patient_activity_edit_profile);
         // You need this line on your activity so Butter Knife knows what Activity-View we are referencing
         ButterKnife.bind(this);
 
@@ -117,7 +117,7 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     public void updateProfile() {
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), PatientMainActivity.class));
         Toast.makeText(getBaseContext(), "Profile Updated", Toast.LENGTH_SHORT).show();
         finish();
     }

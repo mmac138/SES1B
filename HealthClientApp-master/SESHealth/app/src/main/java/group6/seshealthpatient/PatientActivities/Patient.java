@@ -1,9 +1,4 @@
-package group6.seshealthpatient.Activities;
-
-import com.google.firebase.database.Exclude;
-
-import java.util.HashMap;
-import java.util.Map;
+package group6.seshealthpatient.PatientActivities;
 
 public class Patient {
     private String name;
@@ -26,20 +21,6 @@ public class Patient {
         this.height = height;
         this.weight = weight;
         this.gender = gender;
-    }
-
-    @Exclude
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("name", name);
-        result.put("email", email);
-        result.put("medicalInfo", medicalInfo);
-        result.put("dob", dob);
-        result.put("height", height);
-        result.put("weight", weight);
-        result.put("gender", gender);
-
-        return result;
     }
 
     public String getName() {

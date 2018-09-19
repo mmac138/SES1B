@@ -1,4 +1,4 @@
-package group6.seshealthpatient.Activities;
+package group6.seshealthpatient.PatientActivities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,13 +23,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import group6.seshealthpatient.MainActivities.LoginActivity;
 import group6.seshealthpatient.R;
 
 /**
  * Created by Nick on 27/08/2018.
  */
 
-public class RegisterActivity extends AppCompatActivity {
+public class PatientRegisterActivity extends AppCompatActivity {
 
     /**
      * Use the @BindView annotation so Butter Knife can search for that view, and cast it for you
@@ -73,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
      * It is helpful to create a tag for every activity/fragment. It will be easier to understand
      * log messages by having different tags on different places.
      */
-    private static String TAG = "RegisterActivity";
+    private static String TAG = "PatientRegisterActivity";
 
 
 
@@ -81,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.patient_activity_register);
         // You need this line on your activity so Butter Knife knows what Activity-View we are referencing
         ButterKnife.bind(this);
 
@@ -117,10 +118,10 @@ public class RegisterActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
                                 databaseReference.child(user.getUid()).setValue(patient);
-                                Toast.makeText(RegisterActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PatientRegisterActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                                 login();
                             } else {
-                                Toast.makeText(RegisterActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PatientRegisterActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

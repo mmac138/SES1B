@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
-    tools:context="group6.seshealthpatient.Activities.LoginActivity">
+    tools:context="group6.seshealthpatient.MainActivities.LoginActivity">
 
     <TextView
         android:id="@+id/usernameTV"
@@ -125,13 +125,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/caviar_dreams"
-        android:text="Don't have a Profile? Join now!"
+        android:text="Don't have a Profile? Join Now!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.561"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
+        app:layout_constraintVertical_bias="0.75" />
 
 
 </android.support.constraint.ConstraintLayout>

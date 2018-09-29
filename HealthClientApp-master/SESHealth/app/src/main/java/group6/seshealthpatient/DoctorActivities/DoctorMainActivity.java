@@ -134,6 +134,7 @@ public class DoctorMainActivity extends AppCompatActivity {
         ft.commit();
     }
 
+
     private void signOut() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);

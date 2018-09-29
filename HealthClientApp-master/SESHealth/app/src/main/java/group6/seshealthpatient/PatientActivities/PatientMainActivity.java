@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import group6.seshealthpatient.DoctorFragments.ViewPatientsFragment;
 import group6.seshealthpatient.MainActivities.LoginActivity;
 import group6.seshealthpatient.PatientFragments.DataPacketFragment;
 import group6.seshealthpatient.PatientFragments.HeartRateFragment;
@@ -88,7 +89,7 @@ public class PatientMainActivity extends AppCompatActivity {
                                 break;
                             case R.id.nav_data_packet:
                                 if (currentState != MenuStates.DATA_PACKET) {
-                                    ChangeFragment(new DataPacketFragment());
+                                    ChangeFragment(new ViewPatientsFragment());
                                     currentState = MenuStates.DATA_PACKET;
                                     getSupportActionBar().setTitle("Create Data Packet");
                                 }

@@ -145,6 +145,12 @@ public class HeartRateFragment extends Fragment {
             createChart();
 
             camera = Camera.open();
+
+            Camera.Parameters mParameters;
+            mParameters = camera.getParameters();
+            mParameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+            camera.setParameters(mParameters);
+
             startTime = System.currentTimeMillis();
         }
 

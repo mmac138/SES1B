@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import group6.seshealthpatient.DoctorActivities.PatientDetail;
 import group6.seshealthpatient.PatientActivities.Patient;
 import group6.seshealthpatient.R;
 
@@ -136,7 +137,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
 
 
-                                Intent intent = new Intent(mContext,Patient.class);
+                                Intent intent = new Intent(mContext,PatientDetail.class);
 
                                 intent.putExtra("name",ds.child("name").getValue(String.class));
 

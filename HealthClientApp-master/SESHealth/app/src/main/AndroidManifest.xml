@@ -40,6 +40,8 @@
         <activity android:name="group6.seshealthpatient.DoctorActivities.DoctorMainActivity"></activity>
         <activity android:name="group6.seshealthpatient.DoctorActivities.DoctorRegisterActivity"
             android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name="group6.seshealthpatient.DoctorActivities.PatientDetail"></activity>
+        <activity android:name="group6.seshealthpatient.PatientActivities.Patient"></activity>
 
 
         //linking to ggmap APIs key

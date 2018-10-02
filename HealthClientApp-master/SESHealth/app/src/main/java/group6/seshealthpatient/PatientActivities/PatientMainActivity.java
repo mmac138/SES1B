@@ -89,7 +89,7 @@ public class PatientMainActivity extends AppCompatActivity {
                                 break;
                             case R.id.nav_data_packet:
                                 if (currentState != MenuStates.DATA_PACKET) {
-                                    ChangeFragment(new ViewPatientsFragment());
+                                    ChangeFragment(new DataPacketFragment());
                                     currentState = MenuStates.DATA_PACKET;
                                     getSupportActionBar().setTitle("Create Data Packet");
                                 }

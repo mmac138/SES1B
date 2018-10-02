@@ -67,7 +67,6 @@ public class PatientDetail extends AppCompatActivity {
 
     DatabaseReference databaseReference;
 
-    DatabaseReference databaseReference2;
 
 
 
@@ -77,9 +76,6 @@ public class PatientDetail extends AppCompatActivity {
         mContext = PatientDetail.this;
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
-        databaseReference2 = FirebaseDatabase.getInstance().getReference();
-
 
         Log.d(TAG, "onCreate: start");
 
@@ -91,8 +87,6 @@ public class PatientDetail extends AppCompatActivity {
 
 
         initWidgets();
-
-
 
         getIncomingIntent();
 
@@ -152,32 +146,32 @@ public class PatientDetail extends AppCompatActivity {
         Log.d(TAG, "getIncomingIntent: check for incoming intent");
 
 
-        if (getIntent().hasExtra("name") && getIntent().hasExtra("email") && getIntent().hasExtra("medicalInfo") && getIntent().hasExtra("dob") && getIntent().hasExtra("height")&& getIntent().hasExtra("weight")&& getIntent().hasExtra("gender")) {
+        if (getIntent().hasExtra("name") && getIntent().hasExtra("address") ) {
 
             Log.d(TAG, "getIncomingIntent: found intent extras.");
 
 
             String rName = getIntent().getStringExtra("name");
 
-            String rMedicalInfo = getIntent().getStringExtra("medicalInfo");
+            String rAddress = getIntent().getStringExtra("address");
+//
+//            String rDob = getIntent().getStringExtra("dob");
+//
+//            String rHeight = getIntent().getStringExtra("height");
+//
+//            String rWeight = getIntent().getStringExtra("weight");
+//            String rGender = getIntent().getStringExtra("gender");
+//            String rMedicalInfo = getIntent().getStringExtra("medicalInfo");
+//            && getIntent().hasExtra("medicalInfo") && getIntent().hasExtra("dob") && getIntent().hasExtra("height")&& getIntent().hasExtra("weight")&& getIntent().hasExtra("gender")
 
-            String rAddress = getIntent().getStringExtra("email");
-
-            String rDob = getIntent().getStringExtra("dob");
-
-            String rHeight = getIntent().getStringExtra("height");
-
-            String rWeight = getIntent().getStringExtra("weight");
-            String rGender = getIntent().getStringExtra("gender");
-
-            showData(rName, rAddress, getApplicationContext());
+            showData(rName, rAddress);
 
         }
 
     }
 
 
-    private void showData(final String rName, final String rAddress, final Context ctx) {
+    private void showData(final String rName, final String rAddress) {
 
 
         databaseReference.child("Patient").addListenerForSingleValueEvent(new ValueEventListener() {

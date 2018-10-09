@@ -29,7 +29,8 @@
     <string name="record_video">Record Video</string>
     <string name="send_local_file">Send Local File</string>
     <string name="facilities_map">Facilities Map</string>
-    <string name="chat_message">Message Doctor</string>
+    <string name="patient_chat_message">Message Doctor</string>
+    <string name="doctor_chat_message">Message Patient</string>
     <string name="sign_out">Sign Out</string>
 
     <string name="drawer_open">Drawer Open</string>

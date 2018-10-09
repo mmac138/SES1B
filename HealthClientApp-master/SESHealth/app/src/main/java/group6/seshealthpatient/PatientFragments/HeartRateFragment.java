@@ -110,7 +110,7 @@ public class HeartRateFragment extends Fragment {
         context = x.getContext();
 
         getActivity().setTitle("Heart Rate");
-//use this method to allow camera work
+        //use this method to allow camera work
         if (ContextCompat.checkSelfPermission(this.getContext(), Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED) {
             cameraPermissionGranted = true;
@@ -141,13 +141,13 @@ public class HeartRateFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+        Log.d("HeartRate Fragment:", "onResume CALLED");
         if(cameraPermissionGranted){
             createChart();
-
             camera = Camera.open();
+            Log.d("HeartRate Fragment:", "camera.open()");
             startTime = System.currentTimeMillis();
         }
-
     }
 
     @Override
@@ -160,8 +160,6 @@ public class HeartRateFragment extends Fragment {
             camera.release();
             camera = null;
         }
-
-
     }
 
     //Turn off the Timer when closing the program
@@ -169,7 +167,7 @@ public class HeartRateFragment extends Fragment {
     public void onDestroy() {
         timer.cancel();
         super.onDestroy();
-    };
+    }
 
     protected XYMultipleSeriesRenderer buildRenderer(int color,
                                                      PointStyle style, boolean fill) {
@@ -399,18 +397,18 @@ public class HeartRateFragment extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-        Log.d("CAMERA: ", "REQUEST PERMISSION RESULT CALLED");
+        Log.d("HeartRate Fragment:", "REQUEST PERMISSION RESULT CALLED");
         cameraPermissionGranted = false;
 
         // User chose ALLOW
         if (requestCode == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            Log.d("CAMERA: ", "PERMISSION ALLOWED");
+            Log.d("HeartRate Fragment:", "PERMISSION ALLOWED");
 
             cameraPermissionGranted = true;
         }
         // User chose DENY
         else{
-            Log.d("CAMERA: ", "PERMISSION DENIED");
+            Log.d("HeartRate Fragment:", "PERMISSION DENIED");
             return;
         }
     }

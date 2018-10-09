@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +18,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import group6.seshealthpatient.ChatActivity.ChatDetails;
+import group6.seshealthpatient.DoctorFragments.DoctorChatFragment;
+import group6.seshealthpatient.DoctorFragments.DoctorChatSearchFragment;
 import group6.seshealthpatient.DoctorFragments.DoctorInformationFragment;
 import group6.seshealthpatient.DoctorFragments.ViewPatientsFragment;
 import group6.seshealthpatient.MainActivities.LoginActivity;
@@ -30,13 +42,17 @@ public class DoctorMainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private FragmentManager fragmentManager;
     private enum MenuStates {
-        DOCTOR_INFO, VIEW_PATIENTS
+        DOCTOR_INFO, VIEW_PATIENTS, CHAT_MESSAGE
     }
     private group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates currentState;
+
 
     //Global Contents
     private static String TAG = "DoctorMainActivity";
     private boolean doubleBackToExitPressedOnce = false;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private FirebaseAuth firebaseAuth;
 
     @SuppressLint("ResourceType")
     @Override
@@ -58,6 +74,26 @@ public class DoctorMainActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Doctor");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                //Gather users Doctor class
+                Doctor doctor = dataSnapshot.child(user.getUid()).getValue(Doctor.class);
+                ChatDetails.username = doctor.getName();
+                ChatDetails.userID = user.getUid();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         // Setup the navigation drawer, most of this code was taken from:
         // https://developer.android.com/training/implementing-navigation/nav-drawer
@@ -90,7 +126,16 @@ public class DoctorMainActivity extends AppCompatActivity {
                                     getSupportActionBar().setTitle("View Patients");
                                 }
                                 break;
+                            case R.id.nav_doctor_chat:
+                                if (currentState != DoctorMainActivity.MenuStates.CHAT_MESSAGE) {
+                                    ChatDetails.userStatus = "Doctor";
+                                    ChangeFragment(new DoctorChatSearchFragment());
+                                    currentState = DoctorMainActivity.MenuStates.CHAT_MESSAGE;
+                                    getSupportActionBar().setTitle("Messenger");
+                                }
+                                break;
                             case R.id.sign_out:
+                                ChatDetails.username = "";
                                 signOut();
                                 break;
                         }

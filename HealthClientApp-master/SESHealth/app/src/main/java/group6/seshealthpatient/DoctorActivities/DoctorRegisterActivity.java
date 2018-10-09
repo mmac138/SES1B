@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,30 +78,37 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                 String dob = dobET.getText().toString();
                 int selectedId = radioGroup.getCheckedRadioButtonId();
                 radioButton = (RadioButton) findViewById(selectedId);
-                String gender = radioButton.getText().toString();
 
-                //Create new Doctor Profile
-                final Doctor doctor = new Doctor(name, email, dob, gender);
-                //Check if all fields are filled
-                if (name.isEmpty() || dob.isEmpty() || email.isEmpty()) {
-                    Toast.makeText(getBaseContext(), "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
-                } else {
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user = firebaseAuth.getCurrentUser();
-                                //Add Doctor to Firebase Database
-                                databaseReference.child(user.getUid()).setValue(doctor);
-                                Toast.makeText(group6.seshealthpatient.DoctorActivities.DoctorRegisterActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                                login();
-                            } else {
-                                Toast.makeText(group6.seshealthpatient.DoctorActivities.DoctorRegisterActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
+
+                if(radioButton != null){
+                    String gender = radioButton.getText().toString();
+                    //Create new Doctor Profile
+                    final Doctor doctor = new Doctor(name, email, dob, gender);
+                    //Check if all fields are filled
+                    if (name.isEmpty() || dob.isEmpty() || email.isEmpty()) {
+                        Toast.makeText(getBaseContext(), "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                                    //Add Doctor to Firebase Database
+                                    databaseReference.child(user.getUid()).setValue(doctor);
+                                    Toast.makeText(group6.seshealthpatient.DoctorActivities.DoctorRegisterActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                                    login();
+                                } else {
+                                    Toast.makeText(group6.seshealthpatient.DoctorActivities.DoctorRegisterActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 }
+                else{
+                    Toast.makeText(group6.seshealthpatient.DoctorActivities.DoctorRegisterActivity.this, "Please fill in all the fields.", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
         });

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,7 +65,7 @@ public class PatientRegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     //Global Contents
-    private static String TAG = "PatientRegisterActivity";
+    private static final String TAG = "PatientRegisterActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,9 +90,17 @@ public class PatientRegisterActivity extends AppCompatActivity {
                 int selectedId = radioGroup.getCheckedRadioButtonId();
                 radioButton = (RadioButton) findViewById(selectedId);
                 String gender = radioButton.getText().toString();
-
                 //Create new Patient class
                 final Patient patient = new Patient(name, email, medicalInfo, dob, height, weight, gender);
+
+                /*try{
+
+                }
+                catch (Exception e){
+                    Log.d(TAG, "radioButton is null");
+                }*/
+
+
                 //Check if all fields are filled
                 if (name.isEmpty() || dob.isEmpty() || height.isEmpty() || weight.isEmpty() || medicalInfo.isEmpty()
                         || email.isEmpty()) {

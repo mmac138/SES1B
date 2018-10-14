@@ -1,6 +1,5 @@
 package group6.seshealthpatient.PatientFragments;
 
-
 import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
@@ -218,7 +217,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                                 List<Address> addressList = new ArrayList<>();
 
                                 if(currentLocation != null){
-
                                     Log.d(TAG, "CURRENT LOCATION FOUND");
                                     // Initialise latLng object with the current position
                                     LatLng latLng =
@@ -229,14 +227,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                                         addressList = geocoder
                                                 .getFromLocation(currentLocation.getLatitude(),
                                                         currentLocation.getLongitude(), 1);
+                                        //Log.d(TAG, "moving camera to the current position");
+                                        // Move the camera to the current position
+                                        moveCamera(latLng, DEFAULT_ZOOM, "Current location: " +
+                                                addressList.get(0).getAddressLine(0));
                                     }
                                     catch(IOException e){
                                         Log.d(TAG, "Geolocation error: " + e.getMessage());
                                     }
 
-                                    // Move the camera to the current position
-                                    moveCamera(latLng, DEFAULT_ZOOM, "Current location: " +
-                                            addressList.get(0).getAddressLine(0));
                                 }
 
                             }
@@ -338,6 +337,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
         // Initialise the current map with googleMap
         mMap = googleMap;
+        moveCamera(new LatLng(-33.8688, 151.2093), DEFAULT_ZOOM, "SYDNEY");
 
         // Makes the location button appear
         enableLocationButton();

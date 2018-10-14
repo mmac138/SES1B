@@ -7,21 +7,33 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import group6.seshealthpatient.ChatActivity.ChatDetails;
 import group6.seshealthpatient.DoctorFragments.ViewPatientsFragment;
 import group6.seshealthpatient.MainActivities.LoginActivity;
 import group6.seshealthpatient.PatientFragments.DataPacketFragment;
 import group6.seshealthpatient.PatientFragments.HeartRateFragment;
 import group6.seshealthpatient.PatientFragments.MapFragment;
+import group6.seshealthpatient.PatientFragments.PatientChatSearchFragment;
 import group6.seshealthpatient.PatientFragments.PatientInformationFragment;
 import group6.seshealthpatient.PatientFragments.RecordVideoFragment;
 import group6.seshealthpatient.PatientFragments.SendFileFragment;
@@ -34,13 +46,16 @@ public class PatientMainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private FragmentManager fragmentManager;
     private enum MenuStates {
-        PATIENT_INFO, DATA_PACKET, HEARTRATE, RECORD_VIDEO, SEND_FILE, NAVIGATION_MAP
+        PATIENT_INFO, DATA_PACKET, HEARTRATE, RECORD_VIDEO, SEND_FILE, CHAT_MESSAGE, NAVIGATION_MAP
     }
     private MenuStates currentState;
 
     //Global Contents
     private static String TAG = "PatientMainActivity";
     private boolean doubleBackToExitPressedOnce = false;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private FirebaseAuth firebaseAuth;
 
     @SuppressLint("ResourceType")
     @Override
@@ -62,6 +77,29 @@ public class PatientMainActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Patient");
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                //Gather users Patient class
+                Patient patient = dataSnapshot.child(user.getUid()).getValue(Patient.class);
+                ChatDetails.username = patient.getName();
+                ChatDetails.userID = user.getUid();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+
+        });
 
         // Setup the navigation drawer, most of this code was taken from:
         // https://developer.android.com/training/implementing-navigation/nav-drawer
@@ -122,7 +160,16 @@ public class PatientMainActivity extends AppCompatActivity {
                                     getSupportActionBar().setTitle("Facilities Map");
                                 }
                                 break;
+                            case R.id.nav_patient_chat:
+                                if (currentState != MenuStates.CHAT_MESSAGE) {
+                                    ChatDetails.userStatus = "Patient";
+                                    ChangeFragment(new PatientChatSearchFragment());
+                                    currentState = MenuStates.CHAT_MESSAGE;
+                                    getSupportActionBar().setTitle("Messenger");
+                                }
+                                break;
                             case R.id.sign_out:
+                                ChatDetails.username = "";
                                 signOut();
                                 break;
                         }

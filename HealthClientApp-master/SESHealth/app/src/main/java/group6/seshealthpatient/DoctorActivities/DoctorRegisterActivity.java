@@ -49,6 +49,13 @@ public class DoctorRegisterActivity extends AppCompatActivity {
     EditText emailET;
     @BindView(R.id.reg_passwordET)
     EditText passwordET;
+    @BindView(R.id.reg_streetET)
+    EditText streetET;
+    @BindView(R.id.reg_cityET)
+    EditText cityET;
+    @BindView(R.id.reg_postcodeET)
+    EditText postcodeET;
+
 
     //Firebase Contents
     FirebaseDatabase fireBaseDatabase;
@@ -75,12 +82,13 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                 String password = passwordET.getText().toString().trim();
                 String name = usernameEditText.getText().toString();
                 String dob = dobET.getText().toString();
+                String address = streetET.getText() + " " + cityET.getText() + " " + postcodeET.getText();
                 int selectedId = radioGroup.getCheckedRadioButtonId();
                 radioButton = (RadioButton) findViewById(selectedId);
                 String gender = radioButton.getText().toString();
 
                 //Create new Doctor Profile
-                final Doctor doctor = new Doctor(name, email, dob, gender);
+                final Doctor doctor = new Doctor(name, email, dob, gender, address);
                 //Check if all fields are filled
                 if (name.isEmpty() || dob.isEmpty() || email.isEmpty()) {
                     Toast.makeText(getBaseContext(), "Please fill in all the fields.", Toast.LENGTH_SHORT).show();

@@ -5,16 +5,18 @@ public class Doctor {
     private String email;
     private String dob;
     private String gender;
+    private String address;
 
     public Doctor() {
 
     }
 
-    public Doctor(String name, String email, String dob, String gender) {
+    public Doctor(String name, String email, String dob, String gender, String address) {
         this.name = name;
         this.email = email;
         this.dob = dob;
         this.gender = gender;
+        this.address = address;
     }
 
     public String getName() {
@@ -47,6 +49,14 @@ public class Doctor {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
     }
 }
 

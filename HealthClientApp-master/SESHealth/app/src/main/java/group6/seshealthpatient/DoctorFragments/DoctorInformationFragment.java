@@ -38,6 +38,12 @@ public class DoctorInformationFragment extends Fragment {
     //XML contents
     @BindView(R.id.info_fullNameTV)
     TextView info_fullNameTV;
+    @BindView(R.id.info_dobTV)
+    TextView info_dobTV;
+    @BindView(R.id.info_genderTV)
+    TextView info_genderTV;
+    @BindView(R.id.info_addressTV)
+    TextView info_addressTV;
 
 
     public DoctorInformationFragment() {
@@ -68,6 +74,9 @@ public class DoctorInformationFragment extends Fragment {
                 Doctor doctor = dataSnapshot.child(user.getUid()).getValue(Doctor.class);
                 //Update TextView with Doctor class
                 info_fullNameTV.setText(doctor.getName());
+                info_dobTV.setText("D.O.B: " + doctor.getDob());
+                info_genderTV.setText("Gender: " + doctor.getGender());
+                info_addressTV.setText("Address: " + doctor.getAddress());
             }
 
             @Override

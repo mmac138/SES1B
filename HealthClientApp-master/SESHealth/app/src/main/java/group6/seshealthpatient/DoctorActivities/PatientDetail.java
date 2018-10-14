@@ -203,32 +203,32 @@ public class PatientDetail extends AppCompatActivity {
 
                         TextView dDob = (TextView) findViewById(R.id.info_dob);
 
-                        dDob.setText(ds.child("dob").getValue(String.class));
+                        dDob.setText("D.O.B: " + ds.child("dob").getValue(String.class));
 
 
                         TextView dAddress = (TextView) findViewById(R.id.info_email);
 
-                        dAddress.setText(ds.child("email").getValue(String.class));
+                        dAddress.setText("Email: " + ds.child("email").getValue(String.class));
 
 
                         TextView dGender = (TextView) findViewById(R.id.info_gender);
 
-                        dGender.setText(ds.child("gender").getValue(String.class));
+                        dGender.setText("Gender: " + ds.child("gender").getValue(String.class));
 
 
                         TextView dHeight = (TextView) findViewById(R.id.info_height);
 
-                        dHeight.setText(ds.child("height").getValue(String.class));
+                        dHeight.setText("Height: " + ds.child("height").getValue(String.class) + "cm");
 
 
                         TextView dWeight = (TextView) findViewById(R.id.info_weight);
 
-                        dWeight.setText(ds.child("weight").getValue(String.class));
+                        dWeight.setText("Weight: " + ds.child("weight").getValue(String.class)+ " kg");
 
 
-                        TextView dMed = (TextView) findViewById(R.id.info_med);
+                        TextView dMedicalInfo = (TextView) findViewById(R.id.info_med);
 
-                        dWeight.setText(ds.child("weight").getValue(String.class));
+                        dMedicalInfo.setText("Medical Info: " + ds.child("medicalInfo").getValue(String.class));
 
                     } else {
 

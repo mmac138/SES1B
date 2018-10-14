@@ -11,13 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbafdfe8-d900-4836-9466-7fad59a37f48" name="Default" comment="video recording portion">
-      <change afterPath="$PROJECT_DIR$/.idea/SES1B.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="fbafdfe8-d900-4836-9466-7fad59a37f48" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HealthClientApp-master/SESHealth/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HealthClientApp-master/SESHealth/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HealthClientApp-master/SESHealth/app/src/main/java/group6/seshealthpatient/PatientFragments/RecordVideoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/HealthClientApp-master/SESHealth/app/src/main/java/group6/seshealthpatient/PatientFragments/RecordVideoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HealthClientApp-master/SESHealth/app/src/main/res/layout/patient_fragment_record_video.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HealthClientApp-master/SESHealth/app/src/main/res/layout/patient_fragment_record_video.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,8 +27,8 @@
       <file leaf-file-name="RecordVideoFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HealthClientApp-master/SESHealth/app/src/main/java/group6/seshealthpatient/PatientFragments/RecordVideoFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+            <state relative-caret-position="595">
+              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -47,6 +42,19 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="Vid" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -57,7 +65,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1905" />
     <option name="width" value="1950" />
     <option name="height" value="2175" />
@@ -68,6 +76,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SES1B" type="1abcf292:AndroidViewProjectNode" />
+              <item name="SES1B" type="e9137016:NonAndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,6 +201,19 @@
               <item name="group6" type="462c0819:PsiDirectoryNode" />
               <item name="seshealthpatient" type="462c0819:PsiDirectoryNode" />
               <item name="DoctorFragments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SES1B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SES1B" type="462c0819:PsiDirectoryNode" />
+              <item name="HealthClientApp-master" type="462c0819:PsiDirectoryNode" />
+              <item name="SESHealth" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="group6" type="462c0819:PsiDirectoryNode" />
+              <item name="seshealthpatient" type="462c0819:PsiDirectoryNode" />
+              <item name="MainActivities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SES1B" type="b2602c69:ProjectViewProjectNode" />
@@ -392,20 +424,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SES1B" type="1abcf292:AndroidViewProjectNode" />
-              <item name="SES1B" type="e9137016:NonAndroidModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -497,37 +519,44 @@
       <option name="presentableId" value="Default" />
       <updated>1535387879666</updated>
     </task>
+    <task id="LOCAL-00001" summary="video recording portion">
+      <created>1539464973716</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1539464973716</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="635" y="0" width="650" height="725" extended-state="1" />
-    <editor active="true" />
+    <frame x="-6" y="-6" width="1292" height="732" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="8" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" sideWeight="0.4984326" visible="true" weight="0.29366305" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="7" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015674" side_tool="true" visible="true" weight="0.29366305" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015674" side_tool="true" weight="0.29366305" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="4" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Logcat" order="1" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2460815" />
-      <window_info anchor="right" id="Assistant" weight="0.3291536" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12265625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24932493" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="right" id="Assistant" order="8" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" sideWeight="0.4984326" visible="true" weight="0.29366305" />
       <window_info anchor="right" id="Gradle" order="5" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Preview" order="3" />
+      <window_info anchor="bottom" id="Run" order="4" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Analyze Dataflow from" order="9" weight="0.33350462" />
@@ -816,8 +845,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HealthClientApp-master/SESHealth/app/src/main/java/group6/seshealthpatient/PatientFragments/RecordVideoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+        <state relative-caret-position="595">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
         </state>
       </provider>
     </entry>

@@ -83,7 +83,7 @@ public class DoctorMainActivity extends AppCompatActivity {
                                     getSupportActionBar().setTitle("Doctor Information");
                                 }
                                 break;
-                            case R.id.nav_data_packet:
+                            case R.id.nav_view_patients:
                                 if (currentState != group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates.VIEW_PATIENTS) {
                                     ChangeFragment(new ViewPatientsFragment());
                                     currentState = group6.seshealthpatient.DoctorActivities.DoctorMainActivity.MenuStates.VIEW_PATIENTS;
